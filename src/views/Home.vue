@@ -6,7 +6,7 @@
 
   <div class="main">
     <div class="hero">
-    <img src="../images/mainHome/Hero.png" width="1910"/>
+    <img src="../images/mainHome/hero1.png" alt="клеть"/>
     </div>
 
 
@@ -26,8 +26,8 @@
 
 <style scoped>
 img {
-  max-width: 100%; /* Картинка не вылезает за пределы контейнера */
-  height: auto;    /* Высота меняется автоматически */
+  max-width: 100%;
+  height: auto;
 }
 
 template{
