@@ -3,34 +3,32 @@
     src: url('/src/Fonts/Orbitron.ttf') format('truetype');
 }
 
+
 * {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    width: 100%;
+html{
+    background: #0D0D0D;
 }
 
 Header{
     color: white;
     background: #0D0D0D;
-   /* font-family: 'Orbitron';*/
+
 
 
 }
 
 main{
-    /* font-family: 'Orbitron';*/
+
 
     display: flex;
     justify-content: center;
-
-
 
 }
 
@@ -38,7 +36,7 @@ main{
 Footer{
 
     background: #0D0D0D;
-    /* font-family: 'Orbitron';*/
+
     font-weight: bold;
 
     display: flex;
@@ -62,6 +60,8 @@ Footer .container .div .avtors{
 Footer .container .polit2{
     font-weight: lighter;
 }
+
+
 
 
 

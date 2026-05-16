@@ -3,7 +3,7 @@
     <div class="nav-center">
       <RouterLink to="#" class="navigation">Иллюстрации</RouterLink>
       <RouterLink to="/" class="navigation">
-        <img src="../images/header/header_icon.svg" height="34" width="34" />
+        <img src="../images/header/header_icon.svg" height="34" width="34" alt="банан"/>
       </RouterLink>
       <RouterLink to="Page1" class="navigation">Достижения</RouterLink>
     </div>
@@ -15,21 +15,23 @@
 <style scoped>
 .url-but {
   display: grid;
-  /* Три колонки: левая (пустая), центр (по контенту), правая (под кнопку) */
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .nav-center {
-  grid-column: 2; /* Помещаем в центральную колонку */
+  grid-column: 2;
   display: flex;
   gap: 40px;
   align-items: center;
+
 }
 
 #account {
-  grid-column: 3; /* Помещаем в правую колонку */
+  grid-column: 3;
   justify-self: end;
   margin-right: 21px;
 }
