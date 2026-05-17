@@ -1,4 +1,55 @@
 <script setup>
+import { ref} from 'vue'
+
+// Активная вкладка
+const activeTab = ref('windows')
+
+// Данные системных требований (легко редактировать)
+const sysRequirements = {
+  windows: {
+    min: [
+      { label: '', value: '64-разрядные процессор и система' },
+      { label: 'ОС', value: 'Windows 10' },
+      { label: 'ПРОЦЕССОР', value: 'Intel Core i5' },
+      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '6 GB ОЗУ' },
+      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 650' },
+      { label: 'DIRECTX', value: 'версии 12' },
+      { label: 'МЕСТО НА ДИСКЕ', value: '3 GB' }
+    ],
+    rec: [
+      { label: '', value: '64-разрядные процессор и система' },
+      { label: 'ОС', value: 'Windows 10' },
+      { label: 'ПРОЦЕССОР', value: 'Intel Core i7' },
+      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '8 GB ОЗУ' },
+      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 1080' },
+      { label: 'DIRECTX', value: 'версии 12' },
+      { label: 'МЕСТО НА ДИСКЕ', value: '4 GB' }
+    ],
+    note: 'ДОПОЛНИТЕЛЬНО: Requires AVX-AVX2 compatible processor. Only runs on 64 bit systems'
+  },
+  linux: {
+    min: [
+      { label: 'ОС', value: 'Ubuntu 18.04+' },
+      { label: 'ПРОЦЕССОР', value: 'Intel Core i5' },
+      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '6 GB ОЗУ' },
+      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 650' },
+      { label: 'СЕТЬ', value: 'Широкополосное подключение' },
+      { label: 'МЕСТО НА ДИСКЕ', value: '3 GB' }
+    ],
+    rec: [
+      { label: 'ОС', value: 'Ubuntu 18.04+' },
+      { label: 'ПРОЦЕССОР', value: 'Intel Core i7' },
+      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '8 GB ОЗУ' },
+      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 1080' },
+      { label: 'СЕТЬ', value: 'Широкополосное подключение' },
+      { label: 'МЕСТО НА ДИСКЕ', value: '4 GB' }
+    ],
+  }
+}
+const renderReqItem = (item) => {
+  if (!item.label) return item.value
+  return `<span>${item.label}:</span> ${item.value}`
+}
 </script>
 
 <template>
@@ -76,7 +127,7 @@
           <h4 class="block-title">ГИГАХРУЩЁВКА</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/void.png" alt="Гигахрущёвка" />
+              <img src="@/images/mainHome/home.png" alt="Гигахрущёвка" />
             </div>
             <div class="block-text">
               <p>Это здание распласталось на бесконечные километры в ширь и глубь, а его коридоры наполнены аномалиями и смертельными ловушками. Тщательно подбирайте этажи, на которых хотите остановиться, чтобы не попасть впросак.</p>
@@ -88,7 +139,7 @@
           <h4 class="block-title">САМОСБОР</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/void.png" alt="Самосбор" />
+              <img src="@/images/mainHome/die.png" alt="Самосбор" />
             </div>
             <div class="block-text">
               <p>Никто и никогда Вам не расскажет подробности этого загадочного события, периодически происходящего на этажах. Почему? Потому что ни один из свидетелей не остался в живых. Может, Вам удастся взглянуть на последствия Самосбора хотя бы одним глазком?</p>
@@ -100,7 +151,7 @@
           <h4 class="block-title">ВМЕСТЕ</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/void.png" alt="Вместе" />
+              <img src="@/images/mainHome/friend.png" alt="Вместе" />
             </div>
             <div class="block-text">
               <p>Удивительно, но Вы не единственный, на кого пал гневный взор администрации Гигахрущёвки. Объединитесь в команду до 6 человек, чтобы не дать опасностям этого здания поглотить вас поодиночке.</p>
@@ -109,8 +160,64 @@
         </div>
 
         <div class="footer-text">
+        </div>
+
+
+
+        <div class="sys-req-container">
+          <h3 class="section-title">СИСТЕМНЫЕ ТРЕБОВАНИЯ</h3>
+
+
+          <div class="tabs-header">
+            <button
+                v-for="platform in ['windows', 'linux']"
+                :key="platform"
+                class="tab-btn"
+                :class="{ active: activeTab === platform }"
+                @click="activeTab = platform"
+            >
+              {{ platform === 'windows' ? 'Windows' : 'SteamOS + Linux' }}
+            </button>
+          </div>
+
+
+          <Transition name="fade" mode="out-in">
+            <div :key="activeTab" class="tab-content active">
+              <div class="req-columns">
+                <div class="column min-req">
+                  <div class="col-title">МИНИМАЛЬНЫЕ:</div>
+                  <div
+                      v-for="(item, idx) in sysRequirements[activeTab].min"
+                      :key="idx"
+                      class="req-item"
+                      v-html="renderReqItem(item)"
+                  ></div>
+                </div>
+
+
+                <div class="column rec-req">
+                  <div class="col-title">РЕКОМЕНДОВАННЫЕ:</div>
+                  <div
+                      v-for="(item, idx) in sysRequirements[activeTab].rec"
+                      :key="idx"
+                      class="req-item"
+                      v-html="renderReqItem(item)"
+                  ></div>
+                </div>
+              </div>
+
+
+            </div>
+          </Transition>
+        </div>
+
+
+
+
+        <div class="footer-text">
           <p>ДОБРО ПОЖАЛОВАТЬ И УДАЧНОЙ ПОЕЗДКИ В ГЛУБЬ <span class="highlight">ХРУЩА</span></p>
         </div>
+
       </div>
     </div>
   </div>
@@ -379,5 +486,85 @@
   color: #b30000;
 }
 
+
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #8f98a0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+  margin-bottom: 30px;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  color: #b30000;
+  border-bottom: 3px solid #b40000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  animation: fadeIn 0.3s;
+}
+
+
+
+
+.req-columns {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.col-title {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.req-item {
+  margin-bottom: 5px;
+  color: #b8b6b4;
+}
+
+.req-item span:first-child {
+  color: #acb2b8;
+  font-weight: bold;
+  display: inline-block;
+  width: 180px;
+}
 
 </style>
