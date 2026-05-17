@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .url-but {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

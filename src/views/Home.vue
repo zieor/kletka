@@ -4,17 +4,19 @@
 <template>
   <div class="main">
     <div class="hero">
-      <button class="btn hero-btn">ПОПРОБУЙ DEMO</button>
-      <button class="btn hero-btn">КУПИТЬ СЕЙЧАС</button>
+      <a href="https://store.steampowered.com/app/1699480/KLET/">
+        <button class="btn hero-btn">ПОПРОБУЙ DEMO</button>
+        <button class="btn hero-btn">КУПИТЬ СЕЙЧАС</button>
+      </a>
     </div>
 
     <div class="news">
       <div class="news-container">
         <div class="news-header">
           <h2 class="news-title">ПОСЛЕДНИЕ НОВОСТИ</h2>
-          <a href="/news" class="news-link">ПЕРЕЙТИ НА СТРАНИЦУ С НОВОСТЯМИ
+          <RouterLink to="news" class="news-link">ПЕРЕЙТИ НА СТРАНИЦУ С НОВОСТЯМИ
             <span class="arrow"><img src="@/images/mainHome/newsline.svg" alt="банан"></span>
-          </a>
+          </RouterLink>
         </div>
 
         <div class="news-cards">
@@ -188,7 +190,7 @@
   color: #fff;
   font-weight: 700;
   font-size: 34px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-left: 20px;
 }
 
@@ -254,7 +256,7 @@
   gap: 8px;
   margin-top: 16px;
   margin-bottom: 8px;
-  margin-right: 70px;
+  margin-right: 60px;
 }
 
 .card-tag {
@@ -263,6 +265,7 @@
   text-transform: uppercase;
   color: black;
   font-size: 16px;
+  margin-right: 16px;
 }
 
 .card-divider {
@@ -294,42 +297,9 @@
   opacity: 0.9;
 }
 
-@media (max-width: 900px) {
-  .news-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
 
-  .news-cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
 
-  .news-card {
-    max-width: 100%;
-    width: 100%;
-  }
 
-  .card-image {
-    height: 180px;
-  }
-}
-
-@media (max-width: 600px) {
-  .news-title {
-    font-size: 24px;
-  }
-
-  .news-container {
-    padding: 0 20px;
-  }
-
-  .news-cards {
-    gap: 24px;
-  }
-}
 
 .about-game{
   color: white;
