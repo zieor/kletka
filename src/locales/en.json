@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "illustrations": "Illustrations",
+    "levels": "Levels",
+    "account": "Account",
+    "newsLink": "GO TO NEWS PAGE"
+  },
+  "hero": {
+    "demo": "TRY DEMO",
+    "buy": "BUY NOW"
+  },
+  "news": {
+    "title": "NEWS",
+    "tag": "GAME NEWS",
+    "cards": [
+      { "title": "KLET: update 1.1.1", "subtitle": "Bug fixes" },
+      { "title": "KLET: update 1.1.0", "subtitle": "\"SINGULARITY\" update" },
+      { "title": "KLET: beta test of update 1.1.0", "subtitle": "Closed beta test of the upcoming update" },
+      { "title": "KLET: new news", "subtitle": "News description" }
+    ]
+  },
+  "about": {
+    "title": "About the Game",
+    "void": "INTO THE DEPTHS",
+    "voidText": "In a world of an infinitely self-rebuilding building, there is no room for morality, laws, or sentiments. Having fallen out of favor with the local administration, you and a few other \"lucky ones\" have been sent on a certain death... I mean, a mission of redemption! Will you be able to find a way out of the Gigakhrushchevka and save your mortal bodies?",
+    "home": "GIGAKHRUSHCHEVKA",
+    "homeText": "This building sprawls for endless kilometers in width and depth, and its corridors are filled with anomalies and deadly traps. Carefully choose the floors you want to stay on so you don't get caught off guard.",
+    "die": "SELF-ASSEMBLY",
+    "dieText": "No one will ever tell you the details of this mysterious event that periodically occurs on the floors. Why? Because none of the witnesses have survived. Maybe you'll get a glimpse of the consequences of Self-Assembly?",
+    "friend": "TOGETHER",
+    "friendText": "Surprisingly, you are not the only one who has fallen under the angry gaze of the Gigakhrushchevka administration. Team up with up to 6 players to prevent the dangers of this building from consuming you one by one.",
+    "welcome": "WELCOME AND HAVE A SAFE TRIP INTO THE DEPTHS OF <span class=\"highlight\">KHRUSHCH</span>"
+  },
+  "sysreq": {
+    "title": "SYSTEM REQUIREMENTS",
+    "windows": "Windows",
+    "linux": "SteamOS + Linux",
+    "min": "MINIMUM:",
+    "rec": "RECOMMENDED:",
+    "note": "ADDITIONAL: Requires AVX-AVX2 compatible processor. Only runs on 64 bit systems"
+  },
+  "sysdata": {
+    "arch": "64-bit processor and operating system",
+    "os": "OS",
+    "cpu": "PROCESSOR",
+    "ram": "MEMORY",
+    "gpu": "GRAPHICS",
+    "dx": "DIRECTX",
+    "storage": "STORAGE",
+    "network": "NETWORK",
+    "win10": "Windows 10",
+    "ubuntu": "Ubuntu 18.04+",
+    "i5": "Intel Core i5",
+    "i7": "Intel Core i7",
+    "ram6": "6 GB RAM",
+    "ram8": "8 GB RAM",
+    "gtx650": "GeForce GTX 650",
+    "gtx1080": "GeForce GTX 1080",
+    "dx12": "Version 12",
+    "disk3": "3 GB",
+    "disk4": "4 GB",
+    "broadband": "Broadband connection"
+  },
+  "footer": {
+    "privacy": "PRIVACY POLICY",
+    "terms": "TERMS OF USE",
+    "cookies": "COOKIE SETTINGS",
+    "copyright": "© 2020-2026 Callback, ln404, KLET and all associated logos are trademarks, service marks, and/or registered trademarks of Callback, ln404."
+  },
+
+  "locations": {
+    "title": "LOCATIONS",
+    "main": "MAIN",
+    "gigakhrushch": "Gigakhrushch",
+    "elevator": "ELEVATOR",
+    "cage": "Klet",
+    "floors": "FLOORS",
+    "residentialBlock": "Residential block (regular floors and modifiers)",
+    "anomalousFloors": "Anomalous floors",
+    "shopFloor": "Shop floor (BOTTLE)",
+    "street": "Street",
+    "mystery": "???"
+  },
+  "gigakhrushch": {
+    "title": "GIGAKHRUSHCH",
+    "infoTitle": "General Information",
+    "p1": "Gigakhrushch is an endless building that can change its shape and structure. It has no beginning or end. All game events take place within it.",
+    "p2": "It consists of research institutes, residential blocks, and factories. The exact number of floors is unknown. Various anomalies can occur inside, such as Grinding Machines and Self-Assembly. It is also presumed that Gigakhrushch can shift into other anomalous spaces (Bzerkhms).",
+    "p3": "The game currently offers 3 Gigakhrushch biomes: Residential Block, Factory, and Meat Mines."
+  }
+}

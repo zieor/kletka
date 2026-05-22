@@ -1,51 +1,60 @@
 <script setup>
-import { ref} from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { RouterLink } from 'vue-router'
+
+const { t,tm } = useI18n()
+const mainNews = computed(() => {
+  const allNews = tm('news.cards')
+  return allNews.slice(0, 3)
+})
 
 // Активная вкладка
 const activeTab = ref('windows')
 
-// Данные системных требований (легко редактировать)
-const sysRequirements = {
+// Данные системных требований с переводами
+const sysRequirements = computed(() => ({
   windows: {
     min: [
-      { label: '', value: '64-разрядные процессор и система' },
-      { label: 'ОС', value: 'Windows 10' },
-      { label: 'ПРОЦЕССОР', value: 'Intel Core i5' },
-      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '6 GB ОЗУ' },
-      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 650' },
-      { label: 'DIRECTX', value: 'версии 12' },
-      { label: 'МЕСТО НА ДИСКЕ', value: '3 GB' }
+      { label: '', value: t('sysdata.arch') },
+      { label: t('sysdata.os'), value: t('sysdata.win10') },
+      { label: t('sysdata.cpu'), value: t('sysdata.i5') },
+      { label: t('sysdata.ram'), value: t('sysdata.ram6') },
+      { label: t('sysdata.gpu'), value: t('sysdata.gtx650') },
+      { label: t('sysdata.dx'), value: t('sysdata.dx12') },
+      { label: t('sysdata.storage'), value: t('sysdata.disk3') }
     ],
     rec: [
-      { label: '', value: '64-разрядные процессор и система' },
-      { label: 'ОС', value: 'Windows 10' },
-      { label: 'ПРОЦЕССОР', value: 'Intel Core i7' },
-      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '8 GB ОЗУ' },
-      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 1080' },
-      { label: 'DIRECTX', value: 'версии 12' },
-      { label: 'МЕСТО НА ДИСКЕ', value: '4 GB' }
+      { label: '', value: t('sysdata.arch') },
+      { label: t('sysdata.os'), value: t('sysdata.win10') },
+      { label: t('sysdata.cpu'), value: t('sysdata.i7') },
+      { label: t('sysdata.ram'), value: t('sysdata.ram8') },
+      { label: t('sysdata.gpu'), value: t('sysdata.gtx1080') },
+      { label: t('sysdata.dx'), value: t('sysdata.dx12') },
+      { label: t('sysdata.storage'), value: t('sysdata.disk4') }
     ],
-    note: 'ДОПОЛНИТЕЛЬНО: Requires AVX-AVX2 compatible processor. Only runs on 64 bit systems'
+    note: t('sysreq.note')
   },
   linux: {
     min: [
-      { label: 'ОС', value: 'Ubuntu 18.04+' },
-      { label: 'ПРОЦЕССОР', value: 'Intel Core i5' },
-      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '6 GB ОЗУ' },
-      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 650' },
-      { label: 'СЕТЬ', value: 'Широкополосное подключение' },
-      { label: 'МЕСТО НА ДИСКЕ', value: '3 GB' }
+      { label: t('sysdata.os'), value: t('sysdata.ubuntu') },
+      { label: t('sysdata.cpu'), value: t('sysdata.i5') },
+      { label: t('sysdata.ram'), value: t('sysdata.ram6') },
+      { label: t('sysdata.gpu'), value: t('sysdata.gtx650') },
+      { label: t('sysdata.network'), value: t('sysdata.broadband') },
+      { label: t('sysdata.storage'), value: t('sysdata.disk3') }
     ],
     rec: [
-      { label: 'ОС', value: 'Ubuntu 18.04+' },
-      { label: 'ПРОЦЕССОР', value: 'Intel Core i7' },
-      { label: 'ОПЕРАТИВНАЯ ПАМЯТЬ', value: '8 GB ОЗУ' },
-      { label: 'ВИДЕОКАРТА', value: 'GeForce GTX 1080' },
-      { label: 'СЕТЬ', value: 'Широкополосное подключение' },
-      { label: 'МЕСТО НА ДИСКЕ', value: '4 GB' }
-    ],
+      { label: t('sysdata.os'), value: t('sysdata.ubuntu') },
+      { label: t('sysdata.cpu'), value: t('sysdata.i7') },
+      { label: t('sysdata.ram'), value: t('sysdata.ram8') },
+      { label: t('sysdata.gpu'), value: t('sysdata.gtx1080') },
+      { label: t('sysdata.network'), value: t('sysdata.broadband') },
+      { label: t('sysdata.storage'), value: t('sysdata.disk4') }
+    ]
   }
-}
+}))
+
 const renderReqItem = (item) => {
   if (!item.label) return item.value
   return `<span>${item.label}:</span> ${item.value}`
@@ -56,117 +65,97 @@ const renderReqItem = (item) => {
   <div class="main">
     <div class="hero">
       <a href="https://store.steampowered.com/app/1699480/KLET/">
-        <button class="btn hero-btn">ПОПРОБУЙ DEMO</button>
-        <button class="btn hero-btn">КУПИТЬ СЕЙЧАС</button>
+        <button class="btn hero-btn">{{ $t('hero.demo') }}</button>
+        <button class="btn hero-btn">{{ $t('hero.buy') }}</button>
       </a>
     </div>
 
     <div class="news">
       <div class="news-container">
         <div class="news-header">
-          <h2 class="news-title">ПОСЛЕДНИЕ НОВОСТИ</h2>
-          <RouterLink to="news" class="news-link">ПЕРЕЙТИ НА СТРАНИЦУ С НОВОСТЯМИ
-            <span class="arrow"><img src="@/images/mainHome/newsline.svg" alt="банан"></span>
+          <h2 class="news-title">{{ $t('news.title') }}</h2>
+          <RouterLink to="news" class="news-link">
+            {{ $t('nav.newsLink') }}
+            <span class="arrow"><img src="@/images/mainHome/newsline.svg" alt="arrow"></span>
           </RouterLink>
         </div>
 
         <div class="news-cards">
-          <div class="news-card">
-            <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: обновление 1.1.1" class="card-image" />
+          <div
+              v-for="(news, idx) in mainNews"
+              :key="idx"
+              class="news-card"
+          >
+            <img src="@/images/mainHome/news1.png" :alt="news.title" class="card-image" />
             <div class="card-meta">
-              <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
+              <span class="card-tag">{{ $t('news.tag') }}</span>
               <span class="card-divider">|</span>
               <span class="card-date">01.01.1990</span>
             </div>
-            <h3 class="card-title">КЛЕТЬ: обновление 1.1.1</h3>
-            <p class="card-subtitle">Баг фикс</p>
-          </div>
-
-          <div class="news-card">
-            <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: обновление 1.1.0" class="card-image" />
-            <div class="card-meta">
-              <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-              <span class="card-divider">|</span>
-              <span class="card-date">01.01.1990</span>
-            </div>
-            <h3 class="card-title">КЛЕТЬ: обновление 1.1.0</h3>
-            <p class="card-subtitle">Обновление "СИНГУЛЯРНОСТЬ"</p>
-          </div>
-
-          <div class="news-card">
-            <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: бета-тест обновления 1.1.0" class="card-image" />
-            <div class="card-meta">
-              <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-              <span class="card-divider">|</span>
-              <span class="card-date">01.01.1990</span>
-            </div>
-            <h3 class="card-title">КЛЕТЬ: бета-тест обновления 1.1.0</h3>
-            <p class="card-subtitle">Закрытый бета-тест скорого обновления</p>
+            <h3 class="card-title">{{ news.title }}</h3>
+            <p class="card-subtitle">{{ news.subtitle }}</p>
           </div>
         </div>
+
+
+
       </div>
     </div>
 
     <div class="about-game">
       <div class="container">
-        <h2 class="section-title">Об этой игре</h2>
+        <h2 class="section-title">{{ $t('about.title') }}</h2>
 
         <div class="content-block">
-          <h4 class="block-title">В САМУЮ ГЛУБЬ</h4>
+          <h4 class="block-title">{{ $t('about.void') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/void.png" alt="Гигахрущёвка" />
+              <img src="@/images/mainHome/void.png" alt="Void" />
             </div>
             <div class="block-text">
-              <p>В мире бесконечно перестраивающего себя здания нет места морали, законам и сантиментам. Попав в немилость местной администрации, Вас и ещё нескольких «счастливчиков» отправили на верную сме... миссию искупления! Сумеете ли вы найти выход из Гигахрущёвки и спасти свои бренные тела?</p>
+              <p>{{ $t('about.voidText') }}</p>
             </div>
           </div>
         </div>
 
         <div class="content-block">
-          <h4 class="block-title">ГИГАХРУЩЁВКА</h4>
+          <h4 class="block-title">{{ $t('about.home') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/home.png" alt="Гигахрущёвка" />
+              <img src="@/images/mainHome/home.png" alt="Home" />
             </div>
             <div class="block-text">
-              <p>Это здание распласталось на бесконечные километры в ширь и глубь, а его коридоры наполнены аномалиями и смертельными ловушками. Тщательно подбирайте этажи, на которых хотите остановиться, чтобы не попасть впросак.</p>
+              <p>{{ $t('about.homeText') }}</p>
             </div>
           </div>
         </div>
 
         <div class="content-block">
-          <h4 class="block-title">САМОСБОР</h4>
+          <h4 class="block-title">{{ $t('about.die') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/die.png" alt="Самосбор" />
+              <img src="@/images/mainHome/die.png" alt="Die" />
             </div>
             <div class="block-text">
-              <p>Никто и никогда Вам не расскажет подробности этого загадочного события, периодически происходящего на этажах. Почему? Потому что ни один из свидетелей не остался в живых. Может, Вам удастся взглянуть на последствия Самосбора хотя бы одним глазком?</p>
+              <p>{{ $t('about.dieText') }}</p>
             </div>
           </div>
         </div>
 
         <div class="content-block">
-          <h4 class="block-title">ВМЕСТЕ</h4>
+          <h4 class="block-title">{{ $t('about.friend') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/friend.png" alt="Вместе" />
+              <img src="@/images/mainHome/friend.png" alt="Friend" />
             </div>
             <div class="block-text">
-              <p>Удивительно, но Вы не единственный, на кого пал гневный взор администрации Гигахрущёвки. Объединитесь в команду до 6 человек, чтобы не дать опасностям этого здания поглотить вас поодиночке.</p>
+              <p>{{ $t('about.friendText') }}</p>
             </div>
           </div>
         </div>
-
-        <div class="footer-text">
-        </div>
-
-
 
         <div class="sys-req-container">
-          <h3 class="section-title">СИСТЕМНЫЕ ТРЕБОВАНИЯ</h3>
-
+          <h3 class="section-title">{{ $t('sysreq.title') }}</h3>
 
           <div class="tabs-header">
             <button
@@ -176,16 +165,15 @@ const renderReqItem = (item) => {
                 :class="{ active: activeTab === platform }"
                 @click="activeTab = platform"
             >
-              {{ platform === 'windows' ? 'Windows' : 'SteamOS + Linux' }}
+              {{ platform === 'windows' ? $t('sysreq.windows') : $t('sysreq.linux') }}
             </button>
           </div>
-
 
           <Transition name="fade" mode="out-in">
             <div :key="activeTab" class="tab-content active">
               <div class="req-columns">
                 <div class="column min-req">
-                  <div class="col-title">МИНИМАЛЬНЫЕ:</div>
+                  <div class="col-title">{{ $t('sysreq.min') }}</div>
                   <div
                       v-for="(item, idx) in sysRequirements[activeTab].min"
                       :key="idx"
@@ -194,9 +182,8 @@ const renderReqItem = (item) => {
                   ></div>
                 </div>
 
-
                 <div class="column rec-req">
-                  <div class="col-title">РЕКОМЕНДОВАННЫЕ:</div>
+                  <div class="col-title">{{ $t('sysreq.rec') }}</div>
                   <div
                       v-for="(item, idx) in sysRequirements[activeTab].rec"
                       :key="idx"
@@ -205,25 +192,20 @@ const renderReqItem = (item) => {
                   ></div>
                 </div>
               </div>
-
-
             </div>
           </Transition>
         </div>
 
-
-
-
         <div class="footer-text">
-          <p>ДОБРО ПОЖАЛОВАТЬ И УДАЧНОЙ ПОЕЗДКИ В ГЛУБЬ <span class="highlight">ХРУЩА</span></p>
+          <p v-html="$t('about.welcome')"></p>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+
 * {
   box-sizing: border-box;
 }
@@ -320,7 +302,6 @@ const renderReqItem = (item) => {
   display: inline-block;
   font-size: 14px;
   transition: transform 0.2s ease;
-
 }
 
 .news-link:hover .arrow {
@@ -404,11 +385,7 @@ const renderReqItem = (item) => {
   opacity: 0.9;
 }
 
-
-
-
-
-.about-game{
+.about-game {
   color: white;
   background: radial-gradient(#1e1e1e, #090909);
   padding: 39px 0;
@@ -419,6 +396,7 @@ const renderReqItem = (item) => {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .section-title {
   font-size: 32px;
   font-weight: 700;
@@ -482,12 +460,10 @@ const renderReqItem = (item) => {
   margin: 0;
 }
 
-.highlight {
+:deep(.highlight) {
   color: #b30000;
+
 }
-
-
-
 
 .fade-enter-active,
 .fade-leave-active {
@@ -499,6 +475,7 @@ const renderReqItem = (item) => {
   opacity: 0;
   transform: translateY(8px);
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -533,9 +510,6 @@ const renderReqItem = (item) => {
   animation: fadeIn 0.3s;
 }
 
-
-
-
 .req-columns {
   display: flex;
   gap: 40px;
@@ -566,5 +540,4 @@ const renderReqItem = (item) => {
   display: inline-block;
   width: 180px;
 }
-
 </style>

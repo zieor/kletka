@@ -13,13 +13,24 @@ const router = createRouter({
       {
           path: '/page1',
           name: 'Page1',
-          component: () => import('../views/Page1.vue'),
+          component: () => import('../views/levels.vue'),
       },
       {
           path: '/news',
           name: 'News',
           component: () => import('../views/news.vue'),
       },
+      {
+          path: '/locations',
+          name: 'Locations',
+          component: () => import('@/views/levels.vue')
+      },
+      {
+          path: '/locations/gigakhrushch',
+          name: 'Gigakhrushch',
+          component: () => import('@/views/levels/gigakhrushch.vue')
+      },
+
 
   ],
 })

@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { tm } = useI18n()
 </script>
 
 <template>
@@ -6,144 +9,26 @@
     <!-- Верхний блок -->
     <div class="news1">
       <div class="news-box">
-        <p class="news-text">НОВОСТИ</p>
+        <p class="news-text">{{ $t('news.title') }}</p>
       </div>
     </div>
 
     <!-- Нижний блок с карточками -->
     <div class="news-body">
       <div class="news-cards">
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: обновление 1.1.1" class="card-image" />
+        <div
+            v-for="(news, idx) in tm('news.cards')"
+            :key="idx"
+            class="news-card"
+        >
+          <img src="@/images/mainHome/news1.png" :alt="news.title" class="card-image" />
           <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
+            <span class="card-tag">{{ $t('news.tag') }}</span>
             <span class="card-divider">|</span>
             <span class="card-date">01.01.1990</span>
           </div>
-          <h3 class="card-title">КЛЕТЬ: обновление 1.1.1</h3>
-          <p class="card-subtitle">Баг фикс</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: обновление 1.1.0" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: обновление 1.1.0</h3>
-          <p class="card-subtitle">Обновление "СИНГУЛЯРНОСТЬ"</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: бета-тест обновления 1.1.0" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: бета-тест обновления 1.1.0</h3>
-          <p class="card-subtitle">Закрытый бета-тест скорого обновления</p>
-        </div>
-
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
-        </div>
-
-        <div class="news-card">
-          <img src="@/images/mainHome/news1.png" alt="КЛЕТЬ: новая новость" class="card-image" />
-          <div class="card-meta">
-            <span class="card-tag">НОВОСТЬ ОБ ИГРЕ</span>
-            <span class="card-divider">|</span>
-            <span class="card-date">01.01.1990</span>
-          </div>
-          <h3 class="card-title">КЛЕТЬ: новая новость</h3>
-          <p class="card-subtitle">Описание новости</p>
+          <h3 class="card-title">{{ news.title }}</h3>
+          <p class="card-subtitle">{{ news.subtitle }}</p>
         </div>
       </div>
     </div>
@@ -160,8 +45,7 @@
 .news1 {
   background: linear-gradient(to right, #b30000, #4d0000);
   width: 100%;
-  height: 240px;
-  flex-shrink: 0;
+  padding: 30px 0;
 }
 
 .news-box {
@@ -178,7 +62,7 @@
 .news-text {
   color: white;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 36px;
   margin: 0;
 }
 
@@ -192,8 +76,8 @@
 
 .news-cards {
   display: flex;
-  flex-wrap: wrap; /* Карточки переносятся на новую строку */
-  justify-content: center; /* Выравнивание по центру при переносе */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 60px;
   max-width: 1200px;
   width: 100%;
@@ -202,7 +86,7 @@
 }
 
 .news-card {
-  flex: 1 1 300px; /* Базовая ширина 300px, может сжиматься/растягиваться */
+  flex: 1 1 300px;
   max-width: 360px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -232,7 +116,7 @@
   gap: 8px;
   margin-top: 16px;
   margin-bottom: 8px;
-  margin-right: 70px  ;
+  margin-right: 70px;
 }
 
 .card-tag {
@@ -272,6 +156,4 @@
   line-height: 1.4;
   opacity: 0.9;
 }
-
-
 </style>
