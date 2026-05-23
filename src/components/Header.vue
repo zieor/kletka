@@ -13,11 +13,11 @@ const toggleLang = () => {
 <template>
   <div class="url-but">
     <div class="nav-center">
-      <RouterLink to="#" class="navigation">{{ $t('nav.illustrations') }}</RouterLink>
+      <RouterLink to="/illustrations" class="navigation">{{ $t('nav.illustrations') }}</RouterLink>
       <RouterLink to="/" class="navigation">
         <img src="../images/header/header_icon.svg" height="34" width="34" alt="logo"/>
       </RouterLink>
-      <RouterLink to="Page1" class="navigation">{{ $t('nav.levels') }}</RouterLink>
+      <RouterLink to="/levels" class="navigation">{{ $t('nav.levels') }}</RouterLink>
     </div>
 
     <div class="right-section">
@@ -84,4 +84,5 @@ const toggleLang = () => {
 .navigation:hover {
   opacity: 0.8;
 }
+
 </style>

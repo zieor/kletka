@@ -87,5 +87,120 @@
     "p1": "Gigakhrushch is an endless building that can change its shape and structure. It has no beginning or end. All game events take place within it.",
     "p2": "It consists of research institutes, residential blocks, and factories. The exact number of floors is unknown. Various anomalies can occur inside, such as Grinding Machines and Self-Assembly. It is also presumed that Gigakhrushch can shift into other anomalous spaces (Bzerkhms).",
     "p3": "The game currently offers 3 Gigakhrushch biomes: Residential Block, Factory, and Meat Mines."
-  }
+  },
+  "elevator": {
+    "title": "ELEVATOR",
+    "kletTitle": "KLET",
+    "kletDesc1": "Klet is the main location of the game. It's an elevator that players use to move between floors, store their items, etc.",
+    "kletDesc2": "Klet needs to be regularly fed with fuel or meat (feeding Klet with anything other than gasoline must be done directly into its mouth).",
+    "kletDesc3": "Fuel level can be tracked using the fuel tank. Feeding Klet is very important because if it gets hungry (the scanner screen will display \"I WANT TO EAT!\"), and if you fail to feed it, it will eat one of the players.",
+    "kletDesc4": "Klet also requires regular repairs. We recommend using wrench or mega-wrench, otherwise repairing it with bare hands can cause significant damage. When completely broken (to 0), Klet must be repaired to 20. Klet may disobey you and skip needed floors, or make a critical stop, losing a lot of durability.",
+    "kletDesc5": "Klet has a scanner. It shows what items might be on the floor and warns about the number of traps. Klet can be upgraded using gears (you can upgrade the fuel tank, scanner, and shield panel). Also, using speed gears you can increase the elevator's speed.",
+    "factsTitle": "INTERESTING FACTS",
+    "fact1": "You can store inedible items in Klet's Mouth (wrench, spray can, etc.)",
+    "fact2": "There's an inscription \"Tsoi is alive\" in Klet",
+    "fact3": "There's a small chance that Klet will close with a fake image of itself. You need to break it to get inside",
+    "fact4": "You can feed Klet with: Living Beer ([Item]+40), Vodka(+14), Eyeball(+10), Food Concentrate(+8), human meat(-3), creatures(+4), and Slime Cluster(+2)"
+  },
+  "residential": {
+    "title": "RESIDENTIAL BLOCK (REGULAR FLOORS AND MODIFIERS)",
+    "infoTitle": "General Information",
+    "infoDesc1": "Residential Block is the very first location in the game. These are the first 1282 floors.",
+    "infoDesc2": "Among them can be: Anomalous floors, Shop floor, etc. But it mainly consists of regular floors (either with or without modifiers).",
+    "regularTitle": "Regular Floor",
+    "regularDesc1": "Regular floor, passable - generated. Can contain any artifacts, any loot (perhaps except slime and gatekeepers). Most often has several teleportations for protection against self-assembly.",
+    "regularDesc2": "Divided into rooms. May contain a generator room. Let's talk about modifiers.",
+    "floodTitle": "Flood",
+    "floodDesc1": "Also passable - generated. Contains the same loot as a regular floor. The difference is that it is flooded. But water is not the main problem. Electricity moves through the water, dealing quite significant damage. However, it can be survived.",
+    "schizoTitle": "Schizophasia",
+    "schizoDesc1": "Perhaps one of the most interesting modifiers. The level is very dark, and the flashlight works poorly. The character constantly hears voices. Loot is the same, except for dark ones. There is also an interesting loot inspector mechanic. If you pick up such an item, it simply evaporates. However, the inspector does not clear loot. From it, there are always knocks/calls from a lady.",
+    "schizoQuote": "From in-game records: \"Besides hooligans. Everything moves, relocates, voices sound that aren't there. The main thing is - don't trust your eyes\"",
+    "thunderTitle": "Thunderstorm",
+    "thunderDesc1": "Thunderstorm is a rather dangerous floor. It is a regular floor with loot on the ceiling. On this path, every 31-41 seconds lightning strikes the players. The best way to pass this floor is not to stop. Then it will be difficult for lightning to hit.",
+    "thunderQuote": "From in-game records: \"With a slowed remote, Gates move, and crawling dark ones go in an electric dance. If you stand in place - you can get a charge right on the crown. Move, hide, and don't wake up in a grave.\"",
+    "antigravTitle": "Anti-Gravity",
+    "antigravDesc1": "It is in some way a safe floor. Gates to it are only traps. Since the floor is designed this way, players can fly around the floor, however all items on it (except for catchers) also fly!",
+    "antigravQuote": "From in-game records: \"Like any of the VD flies - who we are. Especially lazy. Be careful, when you fly up - there's already a surprise.\"",
+    "postTitle": "Post-Self-Assembly",
+    "postDesc1": "There is a lot of steel on the floor that damaged after Self-Assembly. Snow slows down movement and also gives huge durability. Mushroom picker catches up very quickly. Their rings of smoke burn them, which can be used to light up.",
+    "postQuote": "From in-game records: \"Self-Assembly just passed here. The entire surface is in resin - slippery, sticky, and disgusting. Comb in hand and to work\""
+  },
+  "anomalous": {
+    "title": "ANOMALOUS FLOORS",
+    "general": {
+      "title": "General Information",
+      "text": "Anomalous floors are floors marked with a distinctive icon on the scanner (green background and a skull). They represent some kind of unusual floor."
+    },
+    "biurus": {
+      "title": "Biurus Floor (Backrooms)",
+      "text": "Biurus Floor is an anomalous floor, and also one of the largest in volume in the game. All enemies can be found here except for ???? Heart of Gigakhrushch substance. It has a large amount of loot. It's much easier to get here. Contains scraps, costumes, etc. Also, the floor has an increased chance of spawning a Heart.",
+      "facts": "Interesting facts: In early builds, the Backrooms was a small closed circle without enemies. Only loot and furniture. Now it is procedurally generated."
+    },
+    "schizo": {
+      "title": "Schizophasia",
+      "text": "Schizophasia Floor, known by rumors - an anomalous floor that is always present on the BIE stage, but can also be found on \"T1\". It has unique Schizo enemies that use psychic attacks! There is also a passage to the Back Surface here.",
+      "facts": "Interesting facts: In early builds, you could only find it on the BIE Floor."
+    },
+    "blockWorld": {
+      "title": "Block World Floor",
+      "text": "ERROR Floor is an anomalous floor that appears with a small chance. The floor has textures that look like they were cut from the children's game \"Minecraft\". It has resources, but in reality, it's a link to the game \"LIME NIGHT\" Block World. The floor is a completely black space with purple-white walls. A black door that leads nowhere stands in the middle of the room. Chests, resources, and other items may be on the level."
+    },
+    "shine": {
+      "title": "\"Shine\" Floor",
+      "text": "The \"Shine\" floor is an anomalous floor with no entities. The only loot on this floor is a canister of fuel, a food concentrate, and a wrench. There is always a machine with Live Beer.",
+      "facts": "Interesting facts: It is a kind of reference to the movie \"The Shining\"."
+    },
+    "matrix": {
+      "title": "\"Matrix\" Floor",
+      "text": "Matrix Floor is an anomalous, safe floor. When you enter the Floor, you see white empty2045blocks and a tribe. From the ray, there is only a light slot and shittery. You also have a pulse.",
+      "facts": "Interesting facts: The floor is an obvious reference to the movie The Matrix."
+    },
+    "heart": {
+      "title": "Heart of Gigakhrushch",
+      "text": "It is located on the 100th floor, and in the first phase, there are 4 chains attached to the heart. The weapon deals very little damage, and the heart spits acid, which causes damage upon impact and gradual acid damage. It also creates bumps that can spawn Mushrooms (Enemies), Cubo Slime, and Cicadas (???), and items can drop if the bumps are broken or when the number of mobs reaches its maximum. The items that can drop from the bumps include: Clot, Vodka, Wrench, Shit, and Rake. In the second phase, it falls to the floor, and in the second phase, it performs three attacks and spits acid in the same way as in the first phase. If you are close to the heart, it can jump, fall, and create a shockwave that does not deal damage, and it can also emit acid around itself."
+    }
+  },
+  "shop": {
+    "title": "SHOP FLOOR",
+    "subtitle": "BOTTLE",
+    "description": "The BOTTLE floor is a local shop. It has a high chance of spawning on floors that are multiples of 20. Marked with a dollar sign icon. Prices are usually determined randomly.",
+    "itemsTitle": "Items for sale",
+    "items": [
+      "Rake",
+      "Vodka",
+      "Fuel",
+      "Key & Mega-Key",
+      "Food Concentrate",
+      "The asshole",
+      "Gear",
+      "Speed Gear"
+    ],
+    "facts": "Interesting facts: Fuel in the shop is always 100%"
+  },
+  "street": {
+    "title": "STREET",
+    "subtitle": "STREET",
+    "description": "The street is always located on the 100th floor (in the demo version) and is also one of the endings. Once the players exit, the Cage doors will close and self-assembly will begin. This proves one of the theories that suggests that the street is merely a mirage.",
+    "facts": "Interesting facts: They tried to get outside through the windows in the residential sections, but their attempts were unsuccessful. According to certain theories, every 5-9 floors of Gigahrush is crossed by an invisible boundary that ignores the laws of space and time.",
+    "weather": "According to residents of Gigakhrushch, the weather outside never changes"
+  },
+  "illustrations": {
+    "title": "ILLUSTRATIONS",
+    "screenshots": "SCREENSHOTS",
+    "artworks": "ARTWORKS",
+    "concepts": "CONCEPT ARTS"
+  },
+  "secret": {
+  "title": "???",
+  "subtitle": "???",
+  "description": "Russian Air Defense",
+  "placeholder1": "????????????????????????????????????",
+  "placeholder2": "????????",
+  "placeholder3": "??????????????????????????????????",
+  "placeholder4": "??????????????",
+  "placeholder5": "??????????????????????????????",
+  "placeholder6": "????????????????????????????????",
+  "note": "(appears instead of *** if you enable insectophobia mode) which doesn't always happen",
+  "note2": "In general, everything is the same as ***"
+}
 }

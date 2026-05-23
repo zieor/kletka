@@ -9,31 +9,44 @@ const { t } = useI18n()
   <div class="location-detail-page">
     <!-- Красная шапка -->
     <div class="page-header">
-      <h1 class="page-title">{{ $t('gigakhrushch.title') }}</h1>
+      <h1 class="page-title">{{ $t('elevator.title') }}</h1>
     </div>
 
     <!-- Контент -->
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Секция Общая информация (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
+        <!-- Секция КЛЕТЬ (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
         <section class="info-section">
-          <h2 class="section-title center">{{ $t('gigakhrushch.infoTitle') }}</h2>
+          <h2 class="section-title center">{{ $t('elevator.kletTitle') }}</h2>
 
           <div class="info-body">
             <div class="info-text">
-              <p>{{ $t('gigakhrushch.p1') }}</p>
-              <p>{{ $t('gigakhrushch.p2') }}</p>
-              <p>{{ $t('gigakhrushch.p3') }}</p>
+              <p>{{ $t('elevator.kletDesc1') }}</p>
+              <p>{{ $t('elevator.kletDesc2') }}</p>
+              <p>{{ $t('elevator.kletDesc3') }}</p>
+              <p>{{ $t('elevator.kletDesc4') }}</p>
+              <p>{{ $t('elevator.kletDesc5') }}</p>
             </div>
 
             <div class="info-image">
-              <!-- Замените src на путь к вашему изображению -->
               <img
-                  src="../../images/levels/gigakhrushch.png" width="552" height="311"
-                  :alt="$t('gigakhrushch.title')"
+                  src="../../images/levels/elevator.png"
+                  :alt="$t('elevator.kletTitle')"
               >
             </div>
+          </div>
+        </section>
+
+        <!-- Секция ИНТЕРЕСНЫЕ ФАКТЫ -->
+        <section class="info-section facts-section">
+          <h2 class="section-title">{{ $t('elevator.factsTitle') }}</h2>
+
+          <div class="facts-list">
+            <p class="fact-text">{{ $t('elevator.fact1') }}</p>
+            <p class="fact-text">{{ $t('elevator.fact2') }}</p>
+            <p class="fact-text">{{ $t('elevator.fact3') }}</p>
+            <p class="fact-text">{{ $t('elevator.fact4') }}</p>
           </div>
         </section>
 
@@ -81,18 +94,20 @@ const { t } = useI18n()
 
 /* === Секция информации === */
 .info-section {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
+/* Базовый стиль заголовка (по умолчанию слева) */
 .section-title {
   color: white;
   font-size: 22px;
   font-weight: 700;
   margin: 0 0 25px 0;
   text-transform: uppercase;
+  text-align: left;
 }
 
-/* ✅ Только для «Общая информация» */
+/* ✅ Только для «КЛЕТЬ» */
 .section-title.center {
   text-align: center;
 }
@@ -106,7 +121,7 @@ const { t } = useI18n()
 
 .info-text {
   flex: 1;
-  max-width: 550px;
+  max-width: 600px;
 }
 
 .info-text p {
@@ -124,7 +139,7 @@ const { t } = useI18n()
 .info-image {
   flex-shrink: 0;
   width: 450px;
-  height: 250px;
+  height: 280px;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -138,25 +153,46 @@ const { t } = useI18n()
   filter: contrast(1.1) brightness(0.9);
 }
 
+/* === Секция фактов === */
+.facts-section {
+  margin-top: 40px;
+}
+
+.facts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.fact-text {
+  color: #a8a8a8;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
 /* === Адаптивность === */
 @media (max-width: 900px) {
   .info-body {
     flex-direction: column;
   }
-
   .info-text {
     max-width: 100%;
   }
-
   .info-image {
     width: 100%;
     height: auto;
   }
+  .page-title { font-size: 28px; }
+  .section-title { font-size: 19px; }
 }
 
 @media (max-width: 768px) {
-  .page-title { font-size: 28px; }
-  .section-title { font-size: 19px; }
+  .page-title { font-size: 24px; }
+  .section-title { font-size: 18px; }
   .info-text p { font-size: 14px; }
+  .fact-text { font-size: 14px; }
 }
 </style>

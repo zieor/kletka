@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -9,29 +8,38 @@ const { t } = useI18n()
   <div class="location-detail-page">
     <!-- Красная шапка -->
     <div class="page-header">
-      <h1 class="page-title">{{ $t('gigakhrushch.title') }}</h1>
+      <h1 class="page-title">{{ $t('secret.title') }}</h1>
     </div>
 
     <!-- Контент -->
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Секция Общая информация (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
         <section class="info-section">
-          <h2 class="section-title center">{{ $t('gigakhrushch.infoTitle') }}</h2>
+          <h2 class="section-title">{{ $t('secret.subtitle') }}</h2>
 
           <div class="info-body">
             <div class="info-text">
-              <p>{{ $t('gigakhrushch.p1') }}</p>
-              <p>{{ $t('gigakhrushch.p2') }}</p>
-              <p>{{ $t('gigakhrushch.p3') }}</p>
+              <p>{{ $t('secret.description') }}</p>
+
+              <p>{{ $t('secret.placeholder1') }}</p>
+              <p>{{ $t('secret.placeholder2') }}</p>
+              <p>{{ $t('secret.placeholder3') }}</p>
+              <p>{{ $t('secret.placeholder4') }}</p>
+              <p>{{ $t('secret.placeholder5') }}</p>
+              <p>{{ $t('secret.placeholder6') }}</p>
+
+              <p class="note-text">{{ $t('secret.note') }}</p>
+              <p>{{ $t('secret.note2') }}</p>
             </div>
 
             <div class="info-image">
-              <!-- Замените src на путь к вашему изображению -->
+              <!-- Замените путь на ваше изображение -->
               <img
-                  src="../../images/levels/gigakhrushch.png" width="552" height="311"
-                  :alt="$t('gigakhrushch.title')"
+                  src="../../images/levels/secret.png"
+                  width="552"
+                  height="311"
+                  alt="Secret"
               >
             </div>
           </div>
@@ -43,13 +51,11 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
-/* === Обёртка страницы === */
 .location-detail-page {
   width: 100%;
   background: #090909;
 }
 
-/* === Красная шапка === */
 .page-header {
   background: linear-gradient(to right, #b30000, #4d0000);
   width: 100%;
@@ -66,7 +72,6 @@ const { t } = useI18n()
   text-transform: uppercase;
 }
 
-/* === Контент === */
 .page-content {
   background: radial-gradient(#1e1e1e, #090909);
   padding: 40px 0 60px;
@@ -79,9 +84,8 @@ const { t } = useI18n()
   padding: 0 20px;
 }
 
-/* === Секция информации === */
 .info-section {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .section-title {
@@ -90,14 +94,9 @@ const { t } = useI18n()
   font-weight: 700;
   margin: 0 0 25px 0;
   text-transform: uppercase;
-}
-
-/* ✅ Только для «Общая информация» */
-.section-title.center {
   text-align: center;
 }
 
-/* Тело секции: текст слева, картинка справа */
 .info-body {
   display: flex;
   gap: 30px;
@@ -120,11 +119,17 @@ const { t } = useI18n()
   margin-bottom: 0;
 }
 
-/* Изображение справа */
+.note-text {
+  color: #777;
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 20px;
+}
+
 .info-image {
   flex-shrink: 0;
-  width: 450px;
-  height: 250px;
+  width: 552px;
+  height: 311px;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -135,28 +140,27 @@ const { t } = useI18n()
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: contrast(1.1) brightness(0.9);
 }
 
-/* === Адаптивность === */
 @media (max-width: 900px) {
   .info-body {
     flex-direction: column;
   }
-
   .info-text {
     max-width: 100%;
   }
-
   .info-image {
     width: 100%;
     height: auto;
   }
+  .page-title { font-size: 28px; }
+  .section-title { font-size: 19px; }
 }
 
 @media (max-width: 768px) {
-  .page-title { font-size: 28px; }
-  .section-title { font-size: 19px; }
+  .page-title { font-size: 24px; }
+  .section-title { font-size: 18px; }
   .info-text p { font-size: 14px; }
+  .note-text { font-size: 12px; }
 }
 </style>

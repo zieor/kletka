@@ -6,6 +6,7 @@ const { t } = useI18n()
 </script>
 
 <template>
+
   <div class="locations-page">
     <!-- Красная шапка -->
     <div class="header">
@@ -22,7 +23,7 @@ const { t } = useI18n()
           <div class="section">
             <h2 class="section-title">{{ $t('locations.main') }}</h2>
             <div class="links-group">
-              <RouterLink to="/locations/gigakhrushch" class="link">
+              <RouterLink to="/levels/gigakhrushch" class="link">
                 {{ $t('locations.gigakhrushch') }}
               </RouterLink>
 
@@ -35,17 +36,17 @@ const { t } = useI18n()
           <div class="section">
             <h2 class="section-title">{{ $t('locations.floors') }}</h2>
             <div class="links-group">
-              <RouterLink to="/levels/residential.vue" class="link">{{ $t('locations.residentialBlock') }}</RouterLink>
-              <RouterLink to="/levels/anomalous.vue" class="link">{{ $t('locations.anomalousFloors') }}</RouterLink>
-              <RouterLink to="/levels/shop.vue" class="link">{{ $t('locations.shopFloor') }}</RouterLink>
-              <RouterLink to="/levels/street.vue" class="link">{{ $t('locations.street') }}</RouterLink>
+              <RouterLink to="/levels/residential" class="link">{{ $t('locations.residentialBlock') }}</RouterLink>
+              <RouterLink to="/levels/anomalous" class="link">{{ $t('locations.anomalousFloors') }}</RouterLink>
+              <RouterLink to="/levels/shop" class="link">{{ $t('locations.shopFloor') }}</RouterLink>
+              <RouterLink to="/levels/street" class="link">{{ $t('locations.street') }}</RouterLink>
             </div>
           </div>
         </div>
 
         <!-- ПРАВАЯ СТОРОНА: ??? -->
         <div class="right-column">
-          <RouterLink to="/levels/secret.vue" class="mystery-link">{{ $t('locations.mystery') }}</RouterLink>
+          <RouterLink to="/levels/secret" class="mystery-link">{{ $t('locations.mystery') }}</RouterLink>
         </div>
 
       </div>
@@ -152,6 +153,7 @@ const { t } = useI18n()
   color: rgba(255, 255, 255, 0.08);
   font-size: 60px;
   font-weight: 700;
+  opacity: 0.5;
   text-decoration: none;
   user-select: none;
   letter-spacing: 5px;
