@@ -3,7 +3,8 @@
     "illustrations": "Illustrations",
     "levels": "Levels",
     "account": "Account",
-    "newsLink": "GO TO NEWS PAGE"
+    "newsLink": "GO TO NEWS PAGE",
+    "hello": "Hello"
   },
   "hero": {
     "demo": "TRY DEMO",
@@ -202,5 +203,10 @@
   "placeholder6": "????????????????????????????????",
   "note": "(appears instead of *** if you enable insectophobia mode) which doesn't always happen",
   "note2": "In general, everything is the same as ***"
-}
+},
+  "account": {
+    "title": "PROFILE",
+    "logout": "Logout",
+    "online": "Online"
+  }
 }

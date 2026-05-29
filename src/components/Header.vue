@@ -1,12 +1,22 @@
 <script setup>
+import { RouterLink, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
+import { useAuth } from '@/utils/auth.js'
 
 const { locale } = useI18n()
+const router = useRouter()
+const auth = useAuth()
 
 const toggleLang = () => {
   locale.value = locale.value === 'ru' ? 'en' : 'ru'
   localStorage.setItem('lang', locale.value)
+}
+
+const handleAccountClick = () => {
+  if (!auth.isLoggedIn()) {
+    auth.login()
+  }
+  router.push('/account')
 }
 </script>
 
@@ -21,18 +31,19 @@ const toggleLang = () => {
     </div>
 
     <div class="right-section">
-      <!-- Кнопка переключения языка -->
       <button class="lang-btn" @click="toggleLang">
         {{ locale === 'ru' ? 'EN' : 'RU' }}
       </button>
-      <RouterLink to="#" class="navigation" id="account">{{ $t('nav.account') }}</RouterLink>
+
+      <button class="account-btn" @click="handleAccountClick">
+        {{ auth.isLoggedIn() ? `${$t('nav.hello')}, ${auth.username()}` : $t('nav.account') }}
+      </button>
     </div>
   </div>
 </template>
 
-
-
 <style>
+/* Твои старые стили хедера остаются без изменений */
 .url-but {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -85,4 +96,20 @@ const toggleLang = () => {
   opacity: 0.8;
 }
 
+/* Стили для кнопки аккаунта */
+.account-btn {
+  background: none;
+  border: none;
+  color: #B00100;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.account-btn:hover {
+  opacity: 0.8;
+}
 </style>

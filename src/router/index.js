@@ -59,6 +59,11 @@ const router = createRouter({
             path: '/levels/secret',
             name: 'Secret',
             component: () => import('@/views/levels/secret.vue')
+        },
+        {
+            path: '/account',
+            name: 'Account',
+            component: () => import('@/views/Account.vue')
         }
 
     ]
