@@ -7,17 +7,47 @@
     "hello": "Hello"
   },
   "hero": {
-    "demo": "TRY DEMO",
+    "demo": "TRY",
+    "demo1": "DEMO",
     "buy": "BUY NOW"
   },
   "news": {
     "title": "NEWS",
     "tag": "GAME NEWS",
+    "back": "Back",
     "cards": [
-      { "title": "KLET: update 1.1.1", "subtitle": "Bug fixes" },
-      { "title": "KLET: update 1.1.0", "subtitle": "\"SINGULARITY\" update" },
-      { "title": "KLET: beta test of update 1.1.0", "subtitle": "Closed beta test of the upcoming update" },
-      { "title": "KLET: new news", "subtitle": "News description" }
+      {
+        "id": 1,
+        "title": "KLET: update 1.1.1",
+        "subtitle": "Bug fixes",
+        "date": "05/15/2026",
+        "image": "@/images/news/news1.png",
+        "content": "<p>Emergency update 1.1.1 released, fixing critical bugs.</p><br><p><b>Fixed:</b></p><ul><li>Game crash when entering Residential Block</li><li>Incorrect Russian text display</li><li>Items disappearing from inventory</li><li>Performance drop on floors with \"Flood\" modifier</li></ul><br><p>All players are recommended to update.</p>"
+      },
+      {
+        "id": 2,
+        "title": "KLET: update 1.1.0",
+        "subtitle": "\"SINGULARITY\" update",
+        "date": "05/10/2026",
+        "image": "@/images/news/news1.png",
+        "content": "<p>Major update \"Singularity\" adds new content and mechanics.</p><br><p><b>New features:</b></p><ul><li>New floor \"Singularity\" with unique enemies</li><li>Klet upgrade system via gears</li><li>New items: \"Mega-Key\", \"Slime Cluster\", \"Eyeball\"</li><li>Improved graphics and optimization</li></ul><br><p>Details in patch notes on the update page.</p>"
+      },
+      {
+        "id": 3,
+        "title": "KLET: beta test of update 1.1.0",
+        "subtitle": "Closed beta test of the upcoming update",
+        "date": "05/05/2026",
+        "image": "@/images/news/news1.png",
+        "content": "<p>Registration is now open for the closed beta test of update 1.1.0.</p><br><p><b>How to join:</b></p><ul><li>Own the game in your Steam library</li><li>Fill out the form on the official website</li><li>Wait for an email invitation</li></ul><br><p>Beta test runs from May 20-30. Participants will receive exclusive item \"Beta Badge\".</p>"
+      },
+      {
+        "id": 4,
+        "title": "KLET: Fixes and New Biome",
+        "subtitle": "Bug fixes and new biome announcement",
+        "date": "05/30/2026",
+        "image": "@/images/news/news1.png",
+        "content": "<p>Friends, good afternoon!</p><br><p>We continue fixing pressing issues. At the same time, we are finalizing a new biome, which will soon be released to the beta branch!</p><br><p>Thank you!</p><br><h4>Fixes:</h4><ul><li>Fixed enemy navigation in the Meat Mines biome. Previously, creatures would stop at room junctions.</li><li>Fixed companions getting stuck inside the Kletka.</li><li>Fixed duplicate vehicle UI appearing upon death while inside a vehicle.</li><li>Increased FOV when entering a vehicle.</li><li>Fixed an issue where perks, inventory, and other parameters were incorrectly saved after a new player joined the session.</li><li>Fixed the display of available session slots in the EOS subsystem.</li></ul>"
+      }
     ]
   },
   "about": {
@@ -208,5 +238,34 @@
     "title": "PROFILE",
     "logout": "Logout",
     "online": "Online"
+  },
+  "footerModals": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "p1": "We collect only anonymous data to improve the website.",
+      "p2": "Data is not shared with third parties and is stored only in your browser.",
+      "p3": "You can clear data at any time through your browser settings."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "p1": "This site is a fan project and is not affiliated with official rights holders.",
+      "p2": "All materials belong to their legitimate owners.",
+      "p3": "Content may be used only with proper attribution."
+    },
+    "cookies": {
+      "title": "Cookie Settings",
+      "desc": "This site uses necessary cookies for proper functionality.",
+      "necessary": "Necessary (always active)",
+      "analytics": "Analytics (anonymous statistics)",
+      "reject": "Reject all",
+      "accept": "Accept selected"
+    },
+    "banner": {
+      "text": "We use necessary cookies for the site to work properly.",
+      "details": "Learn more",
+      "accept": "Accept",
+      "settings": "Settings"
+    },
+    "back": "Back"
   }
 }

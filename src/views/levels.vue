@@ -119,7 +119,7 @@ const { t } = useI18n()
 
 .sub-title {
   color: white;
-  font-size: 18px;
+  font-size: 22px;
   margin: 18px 0 6px 0;
   text-transform: uppercase;
   font-weight: 600;
