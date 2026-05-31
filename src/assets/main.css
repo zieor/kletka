@@ -2,7 +2,9 @@
     font-family: 'Orbitron';
     src: url('/src/Fonts/Orbitron.ttf') format('truetype');
 }
-
+html {
+    overflow-y: scroll;
+}
 
 * {
     margin: 0 auto;

@@ -237,7 +237,9 @@
   "account": {
     "title": "ПРОФИЛЬ",
     "logout": "Выйти",
-    "online": "В сети"
+    "online": "В сети",
+    "registered": "Зарегистрирован",
+    "editProfile": "Редактировать профиль"
   },
   "footerModals": {
     "privacy": {
@@ -267,5 +269,41 @@
       "settings": "Настройки"
     },
     "back": "Назад"
+  },
+  "payment": {
+    "title": "ОФОРМЛЕНИЕ ЗАКАЗА",
+    "price": "365 ₽",
+    "email": "Email",
+    "method": "Способ оплаты",
+    "card": "Банковская карта",
+    "cardNumber": "Номер карты",
+    "expiry": "Срок (ММ/ГГ)",
+    "cvv": "CVV",
+    "cancel": "Отмена",
+    "confirm": "Оплатить",
+    "successTitle": "ОПЛАТА УСПЕШНА!",
+    "successText": "Спасибо за покупку. Ключ активации отправлен на вашу почту.",
+    "successNote": "Проверьте папку «Спам», если письмо не пришло."
+  },
+  "auth": {
+    "registerTitle": "СОЗДАТЬ АККАУНТ",
+    "loginTitle": "ВХОД В АККАУНТ",
+    "email": "Email",
+    "emailPlaceholder": "you\\@example.com",
+    "username": "Имя пользователя",
+    "usernamePlaceholder": "Здоровяк",
+    "password": "Пароль",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Подтвердите пароль",
+    "confirmPlaceholder": "••••••••",
+    "passwordsMismatch": "Пароли не совпадают",
+    "passwordShort": "Пароль должен содержать минимум 6 символов",
+    "fillAll": "Заполните все обязательные поля",
+    "haveAccount": "Уже есть аккаунт? Войти",
+    "noAccount": "Нет аккаунта? Зарегистрироваться",
+    "registerBtn": "Зарегистрироваться",
+    "loginBtn": "Войти",
+    "demoNote": "Данные хранятся только в браузере"
   }
+
 }

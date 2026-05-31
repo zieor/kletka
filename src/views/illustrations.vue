@@ -30,8 +30,8 @@ const screenshots = [
 ]
 
 const artworks = [
-  { id: 1, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 1' },
-  { id: 2, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 2' },
+  { id: 1, src: new URL('@/images/illustration/il1.png', import.meta.url).href, alt: 'Art 1'},
+  { id: 2, src: new URL('@/images/illustration/il2.png', import.meta.url).href, alt: 'Art 2' },
   { id: 3, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 3' },
   { id: 4, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 4' },
 ]
@@ -187,7 +187,7 @@ const concepts = [
 .gallery-scroll::-webkit-scrollbar-thumb { background: #b30000; border-radius: 4px; }
 .gallery-scroll::-webkit-scrollbar-thumb:hover { background: #ff0000; }
 
-/* === Элемент галереи === */
+/* === Элемент галереи  */
 .gallery-item {
   flex-shrink: 0;
   width: 400px;

@@ -237,7 +237,9 @@
   "account": {
     "title": "PROFILE",
     "logout": "Logout",
-    "online": "Online"
+    "online": "Online",
+    "registered": "Registered",
+    "editProfile": "Edit Profile"
   },
   "footerModals": {
     "privacy": {
@@ -267,5 +269,40 @@
       "settings": "Settings"
     },
     "back": "Back"
+  },
+  "payment": {
+    "title": "CHECKOUT",
+    "price": "$5",
+    "email": "Email",
+    "method": "Payment method",
+    "card": "Credit/Debit Card",
+    "cardNumber": "Card number",
+    "expiry": "Expiry (MM/YY)",
+    "cvv": "CVV",
+    "cancel": "Cancel",
+    "confirm": "Pay now",
+    "successTitle": "PAYMENT SUCCESSFUL!",
+    "successText": "Thank you for your purchase. Activation key sent to your email.",
+    "successNote": "Check your Spam folder if you don't see the email."
+  },
+  "auth": {
+    "registerTitle": "CREATE ACCOUNT",
+    "loginTitle": "LOGIN",
+    "email": "Email",
+    "emailPlaceholder": "you\\@example.com",
+    "username": "Username",
+    "usernamePlaceholder": "Zdorovyak",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm password",
+    "confirmPlaceholder": "••••••••",
+    "passwordsMismatch": "Passwords do not match",
+    "passwordShort": "Password must be at least 6 characters",
+    "fillAll": "Please fill in all required fields",
+    "haveAccount": "Already have an account? Login",
+    "noAccount": "Don't have an account? Register",
+    "registerBtn": "Register",
+    "loginBtn": "Login",
+    "demoNote": "Data is stored only in your browser"
   }
 }
