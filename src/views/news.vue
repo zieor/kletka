@@ -204,7 +204,7 @@ const getImageUrl = (path) => {
   opacity: 0.9;
 }
 
-/* === МОДАЛЬНОЕ ОКНО === */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -218,7 +218,7 @@ const getImageUrl = (path) => {
   z-index: 9999;
   padding: 20px;
   overflow-y: auto;
-  outline: none; /* Убираем стандартную обводку фокуса */
+  outline: none;
 }
 
 .modal-content {
@@ -333,7 +333,7 @@ const getImageUrl = (path) => {
   color: white;
 }
 
-/* Анимация появления/исчезновения */
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.25s ease;
@@ -344,7 +344,7 @@ const getImageUrl = (path) => {
   opacity: 0;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
   .modal-content { padding: 25px; }
   .modal-title { font-size: 22px; }

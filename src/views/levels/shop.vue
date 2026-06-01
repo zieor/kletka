@@ -6,12 +6,10 @@ const { t, tm } = useI18n()
 
 <template>
   <div class="location-detail-page">
-    <!-- Красная шапка -->
     <div class="page-header">
       <h1 class="page-title">{{ $t('shop.title') }}</h1>
     </div>
 
-    <!-- Контент -->
     <div class="page-content">
       <div class="content-container">
 
@@ -33,7 +31,7 @@ const { t, tm } = useI18n()
             </div>
 
             <div class="info-image">
-              <img src="../../images/levels/shop_bottle.png" width="552" height="311" alt="Shop Floor">
+              <img src="../../../public/images/levels/shop_bottle.png" width="552" height="311" alt="Shop Floor">
             </div>
           </div>
         </section>

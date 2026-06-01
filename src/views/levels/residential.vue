@@ -6,16 +6,16 @@ const { t } = useI18n()
 
 <template>
   <div class="location-detail-page">
-    <!-- Красная шапка -->
+
     <div class="page-header">
       <h1 class="page-title">{{ $t('residential.title') }}</h1>
     </div>
 
-    <!-- Контент -->
+
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Секция: Общая информация (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
+
         <section class="info-section">
           <h2 class="section-title center">{{ $t('residential.infoTitle') }}</h2>
           <div class="info-body">
@@ -24,12 +24,12 @@ const { t } = useI18n()
               <p>{{ $t('residential.infoDesc2') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/res1.png" width="552" height="311" alt="Residential Info">
+              <img src="../../../public/images/levels/res1.png" width="552" height="311" alt="Residential Info">
             </div>
           </div>
         </section>
 
-        <!-- Секция: Обычный этаж -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.regularTitle') }}</h2>
           <div class="info-text-full">
@@ -38,7 +38,6 @@ const { t } = useI18n()
           </div>
         </section>
 
-        <!-- Секция: Потоп -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.floodTitle') }}</h2>
           <div class="info-text-full">
@@ -46,7 +45,6 @@ const { t } = useI18n()
           </div>
         </section>
 
-        <!-- Секция: Шизофазия -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.schizoTitle') }}</h2>
           <div class="info-body">
@@ -55,12 +53,11 @@ const { t } = useI18n()
               <p class="quote-text">Из записей в игре: {{ $t('residential.schizoQuote') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/res2.png" width="552" height="311" alt="Schizophasia">
+              <img src="../../../public/images/levels/res2.png" width="552" height="311" alt="Schizophasia">
             </div>
           </div>
         </section>
 
-        <!-- Секция: Гроза -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.thunderTitle') }}</h2>
           <div class="info-text-full">
@@ -69,7 +66,6 @@ const { t } = useI18n()
           </div>
         </section>
 
-        <!-- Секция: Анти - Гравитация -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.antigravTitle') }}</h2>
           <div class="info-text-full">
@@ -78,7 +74,6 @@ const { t } = useI18n()
           </div>
         </section>
 
-        <!-- Секция: Пост - Самосбор -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('residential.postTitle') }}</h2>
           <div class="info-text-full">
@@ -138,7 +133,7 @@ const { t } = useI18n()
   text-transform: uppercase;
 }
 
-/* ✅ Только для «Общая информация» */
+
 .section-title.center {
   text-align: center;
 }

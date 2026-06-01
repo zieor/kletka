@@ -13,16 +13,15 @@ const getImageUrl = (path) => {
   return new URL(path.replace('@/', '/src/'), import.meta.url).href
 }
 
-// Активная вкладка
+
 const activeTab = ref('windows')
 
-// Состояние модальных окон
 const selectedNews = ref(null)
 const showPaymentModal = ref(false)
 const paymentStep = ref('form') // 'form' | 'success'
 const paymentMethod = ref('steam')
 
-// Новости
+
 const openModal = (news) => {
   selectedNews.value = news
   document.body.style.overflow = 'hidden'
@@ -38,7 +37,6 @@ const handleKeydown = (e) => {
   }
 }
 
-// Оплата
 const openPayment = () => {
   showPaymentModal.value = true
   paymentStep.value = 'form'
@@ -60,7 +58,7 @@ const submitPayment = () => {
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
-// Системные требования
+
 const sysRequirements = computed(() => ({
   windows: {
     min: [
@@ -111,25 +109,25 @@ const renderReqItem = (item) => {
 
 <template>
   <div class="main">
-    <!-- ГЕРОЙ -->
+
     <div class="hero">
       <div class="hero-buttons">
         <a href="https://store.steampowered.com/app/1699480/KLET/">
           <button class="btn hero-btn">{{ $t('hero.demo') }}</button>
         </a>
-        <!-- Кнопка оплаты открывает модалку -->
+
         <button class="btn hero-btn" @click="openPayment">{{ $t('hero.buy') }}</button>
       </div>
     </div>
 
-    <!-- НОВОСТИ -->
+
     <div class="news">
       <div class="news-container">
         <div class="news-header">
           <h2 class="news-title">{{ $t('news.title') }}</h2>
           <RouterLink to="/news" class="news-link">
             {{ $t('nav.newsLink') }}
-            <span class="arrow"><img src="@/images/mainHome/newsline.svg" alt="arrow"></span>
+            <span class="arrow"><img src="/images/mainHome/newsline.svg" alt="arrow"></span>
           </RouterLink>
         </div>
         <div class="news-cards">
@@ -152,16 +150,14 @@ const renderReqItem = (item) => {
       </div>
     </div>
 
-    <!-- ОБ ИГРЕ -->
     <div class="about-game">
       <div class="container">
         <h2 class="section-title">{{ $t('about.title') }}</h2>
-        <!-- ... блоки об игре без изменений ... -->
         <div class="content-block">
           <h4 class="block-title">{{ $t('about.void') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/void.png" alt="Void" />
+              <img src="/images/mainHome/void.png" alt="Void" />
             </div>
             <div class="block-text">
               <p>{{ $t('about.voidText') }}</p>
@@ -172,7 +168,7 @@ const renderReqItem = (item) => {
           <h4 class="block-title">{{ $t('about.home') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/home.png" alt="Home" />
+              <img src="/images/mainHome/home.png" alt="Home" />
             </div>
             <div class="block-text">
               <p>{{ $t('about.homeText') }}</p>
@@ -183,7 +179,7 @@ const renderReqItem = (item) => {
           <h4 class="block-title">{{ $t('about.die') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/die.png" alt="Die" />
+              <img src="/images/mainHome/die.png" alt="Die" />
             </div>
             <div class="block-text">
               <p>{{ $t('about.dieText') }}</p>
@@ -194,7 +190,7 @@ const renderReqItem = (item) => {
           <h4 class="block-title">{{ $t('about.friend') }}</h4>
           <div class="block-body">
             <div class="block-image">
-              <img src="@/images/mainHome/friend.png" alt="Friend" />
+              <img src="/images/mainHome/friend.png" alt="Friend" />
             </div>
             <div class="block-text">
               <p>{{ $t('about.friendText') }}</p>
@@ -202,7 +198,6 @@ const renderReqItem = (item) => {
           </div>
         </div>
 
-        <!-- Системные требования -->
         <div class="sys-req-container">
           <h3 class="section-title">{{ $t('sysreq.title') }}</h3>
           <div class="tabs-header">
@@ -248,7 +243,6 @@ const renderReqItem = (item) => {
       </div>
     </div>
 
-    <!-- === МОДАЛЬНОЕ ОКНО НОВОСТЕЙ === -->
     <Transition name="modal">
       <div v-if="selectedNews" class="modal-overlay" @click="closeModal">
         <div class="modal-content" @click.stop>
@@ -269,42 +263,40 @@ const renderReqItem = (item) => {
       </div>
     </Transition>
 
-    <!-- === МОДАЛЬНОЕ ОКНО ОПЛАТЫ === -->
     <Transition name="modal">
       <div v-if="showPaymentModal" class="modal-overlay" @click="closePayment">
         <div class="modal-content payment-modal" @click.stop>
           <button class="modal-close" @click="closePayment">&times;</button>
 
-          <!-- Шаг 1: Форма оплаты -->
           <template v-if="paymentStep === 'form'">
             <h3 class="modal-title">{{ $t('payment.title') }}</h3>
             <p class="payment-price">{{ $t('payment.price') }}</p>
 
             <form @submit.prevent="submitPayment" class="payment-form">
-              <!-- Email -->
+
               <div class="form-group">
                 <label>{{ $t('payment.email') }} *</label>
                 <input type="email" required placeholder="you@example.com" class="form-input">
               </div>
 
-              <!-- Способ оплаты -->
+
               <div class="form-group">
                 <label>{{ $t('payment.method') }}</label>
                 <div class="payment-methods">
                   <label class="method-option">
                     <input type="radio" name="method" value="steam" v-model="paymentMethod">
-                    <span class="method-icon">🎮</span>
+
                     <span>Steam</span>
                   </label>
                   <label class="method-option">
                     <input type="radio" name="method" value="card" v-model="paymentMethod">
-                    <span class="method-icon">💳</span>
+
                     <span>{{ $t('payment.card') }}</span>
                   </label>
                 </div>
               </div>
 
-              <!-- Поля карты (только если выбрано) -->
+
               <div v-if="paymentMethod === 'card'" class="card-fields">
                 <div class="form-group">
                   <label>{{ $t('payment.cardNumber') }}</label>
@@ -322,7 +314,7 @@ const renderReqItem = (item) => {
                 </div>
               </div>
 
-              <!-- Кнопки -->
+
               <div class="payment-actions">
                 <button type="button" class="btn-cancel" @click="closePayment">
                   {{ $t('payment.cancel') }}
@@ -334,7 +326,7 @@ const renderReqItem = (item) => {
             </form>
           </template>
 
-          <!-- Шаг 2: Успех -->
+
           <template v-else-if="paymentStep === 'success'">
             <div class="payment-success">
               <div class="success-icon">✓</div>
@@ -350,7 +342,7 @@ const renderReqItem = (item) => {
 </template>
 
 <style scoped>
-/* === ВАШИ СТАРЫЕ СТИЛИ (без изменений) === */
+
 * { box-sizing: border-box; }
 .main { margin: 0 auto; width: 100%; }
 
@@ -358,7 +350,7 @@ const renderReqItem = (item) => {
   width: 100%;
   max-width: 1920px;
   height: 748px;
-  background-image: url('@/images/mainHome/hero1.png');
+  background-image: url('/images/mainHome/hero1.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -390,8 +382,6 @@ const renderReqItem = (item) => {
 .btn:hover { border-color: #b00100; background-color: #4b333366; }
 .btn:focus-visible { outline: 2px solid #b00100; outline-offset: 4px; }
 
-/* ... все остальные ваши стили для новостей, об игре, системных требований ... */
-/* (я не дублирую их здесь для краткости — они остаются без изменений) */
 
 .news { background: linear-gradient(to right, #b30000, #4d0000); min-height: 535px; padding: 40px 0 60px; display: flex; justify-content: center; }
 .news-container { width: 100%; max-width: 1400px; padding: 0 40px; }
@@ -441,7 +431,7 @@ const renderReqItem = (item) => {
 .req-item { margin-bottom: 5px; color: #b8b6b4; }
 .req-item span:first-child { color: #acb2b8; font-weight: bold; display: inline-block; width: 180px; }
 
-/* === МОДАЛЬНОЕ ОКНО НОВОСТЕЙ (ваши стили) === */
+
 .modal-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.92); display: flex; justify-content: center;
@@ -481,9 +471,9 @@ const renderReqItem = (item) => {
 .modal-enter-active, .modal-leave-active { transition: opacity 0.25s ease; }
 .modal-enter-from, .modal-leave-to { opacity: 0; }
 
-/* === СТИЛИ ФОРМЫ ОПЛАТЫ (ОБНОВЛЕНО) === */
+
 .payment-modal {
-  max-width: 650px;  /* Было 500px → теперь шире */
+  max-width: 650px;
   padding: 35px;
 }
 
@@ -534,7 +524,7 @@ const renderReqItem = (item) => {
   color: #666;
 }
 
-/* Поля карты в одну строку */
+
 .form-row {
   display: flex;
   gap: 20px;
@@ -542,10 +532,10 @@ const renderReqItem = (item) => {
 
 .form-row .form-group {
   flex: 1;
-  min-width: 0; /* Чтобы flex-элементы сжимались корректно */
+  min-width: 0;
 }
 
-/* Способы оплаты */
+
 .payment-methods {
   display: flex;
   gap: 15px;
@@ -585,7 +575,7 @@ const renderReqItem = (item) => {
   font-size: 20px;
 }
 
-/* Блок с полями карты */
+
 .card-fields {
   background: rgba(179, 0, 0, 0.08);
   border: 1px solid rgba(179, 0, 0, 0.3);
@@ -594,7 +584,7 @@ const renderReqItem = (item) => {
   margin-top: -5px;
 }
 
-/* Кнопки оплаты */
+
 .payment-actions {
   display: flex;
   gap: 15px;
@@ -633,7 +623,7 @@ const renderReqItem = (item) => {
   background: #900;
 }
 
-/* Успех оплаты */
+
 .payment-success {
   text-align: center;
   padding: 20px 0;
@@ -670,7 +660,7 @@ const renderReqItem = (item) => {
   margin-top: 20px;
 }
 
-/* Адаптивность формы */
+
 @media (max-width: 768px) {
   .payment-modal {
     max-width: 95vw;

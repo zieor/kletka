@@ -8,18 +8,17 @@ const { t } = useI18n()
 <template>
 
   <div class="locations-page">
-    <!-- Красная шапка -->
+
     <div class="header">
       <h1 class="header-title">{{ $t('locations.title') }}</h1>
     </div>
 
-    <!-- Основной контент -->
+
     <div class="content-wrapper">
       <div class="content-container">
 
-        <!-- ЛЕВАЯ СТОРОНА: Список -->
         <div class="left-column">
-          <!-- Секция 1 -->
+
           <div class="section">
             <h2 class="section-title">{{ $t('locations.main') }}</h2>
             <div class="links-group">
@@ -32,7 +31,7 @@ const { t } = useI18n()
             </div>
           </div>
 
-          <!-- Секция 2 -->
+
           <div class="section">
             <h2 class="section-title">{{ $t('locations.floors') }}</h2>
             <div class="links-group">
@@ -44,7 +43,7 @@ const { t } = useI18n()
           </div>
         </div>
 
-        <!-- ПРАВАЯ СТОРОНА: ??? -->
+
         <div class="right-column">
           <RouterLink to="/levels/secret" class="mystery-link">{{ $t('locations.mystery') }}</RouterLink>
         </div>
@@ -86,15 +85,15 @@ const { t } = useI18n()
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: flex-start; /* Выравнивание по левому краю */
+  justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
   position: relative;
 }
 
-/* Левая колонка: строго слева, без растягивания */
+
 .left-column {
-  width: 65%; /* Фиксируем ширину, чтобы не уезжало в центр */
+  width: 65%;
   text-align: left;
 }
 
@@ -105,7 +104,7 @@ const { t } = useI18n()
 .section-title {
   color: white;
   font-size: 22px;
-  margin: 0 0 6px 0; /* Минимальный отступ до первой ссылки */
+  margin: 0 0 6px 0;
   text-transform: uppercase;
   font-weight: 700;
   line-height: 1;
@@ -114,7 +113,7 @@ const { t } = useI18n()
 .links-group {
   display: flex;
   flex-direction: column;
-  gap: 3px; /* Ссылки прижаты друг к другу */
+  gap: 3px;
 }
 
 .sub-title {
@@ -142,7 +141,7 @@ const { t } = useI18n()
   text-decoration: underline;
 }
 
-/* Правая колонка: ??? прижата вправо */
+
 .right-column {
   position: absolute;
   right: 20px;

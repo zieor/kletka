@@ -4,57 +4,58 @@ import { ref } from 'vue'
 
 const { t } = useI18n()
 
-// Состояние для открытой картинки (null = закрыто)
+
 const selectedImage = ref(null)
 
-// Функция открытия
+
 const openImage = (img) => {
   selectedImage.value = img
   document.body.style.overflow = 'hidden' // Блокируем скролл страницы
 }
 
-// Функция закрытия
+
 const closeLightbox = () => {
   selectedImage.value = null
   document.body.style.overflow = '' // Возвращаем скролл
 }
 
-// Данные для галереи
+
 const screenshots = [
-  { id: 1, src: new URL('@/images/illustration/il1.png', import.meta.url).href, alt: 'Screenshot 1' },
-  { id: 2, src: new URL('@/images/illustration/il2.png', import.meta.url).href, alt: 'Screenshot 2' },
-  { id: 3, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 3' },
-  { id: 4, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 4' },
-  { id: 5, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 5' },
-  { id: 6, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 6' },
+  { id: 1, src: new URL('/images/illustration/il1.png', import.meta.url).href, alt: 'Screenshot 1' },
+  { id: 2, src: new URL('/images/illustration/il2.png', import.meta.url).href, alt: 'Screenshot 2' },
+  { id: 3, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 3' },
+  { id: 4, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 4' },
+  { id: 5, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 5' },
+  { id: 6, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 6' },
 ]
 
 const artworks = [
-  { id: 1, src: new URL('@/images/illustration/il1.png', import.meta.url).href, alt: 'Art 1'},
-  { id: 2, src: new URL('@/images/illustration/il2.png', import.meta.url).href, alt: 'Art 2' },
-  { id: 3, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 3' },
-  { id: 4, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Art 4' },
+  { id: 1, src: new URL('/images/illustration/il1.png', import.meta.url).href, alt: 'Art 1'},
+  { id: 2, src: new URL('/images/illustration/il2.png', import.meta.url).href, alt: 'Art 2' },
+  { id: 3, src: new URL('/images/levels/street.png', import.meta.url).href, alt: 'Art 3' },
+  { id: 4, src: new URL('/images/levels/street.png', import.meta.url).href, alt: 'Art 4' },
 ]
 
 const concepts = [
-  { id: 1, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Concept 1' },
-  { id: 2, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Concept 2' },
-  { id: 3, src: new URL('@/images/levels/street.png', import.meta.url).href, alt: 'Concept 3' },
+  { id: 1, src: new URL('/images/illustration/concept1.png', import.meta.url).href, alt: 'Concept 1' },
+  { id: 2, src: new URL('/images/illustration/concept2.png', import.meta.url).href, alt: 'Concept 2' },
+  { id: 3, src: new URL('/images/illustration/concept3.png', import.meta.url).href, alt: 'Concept 3' },
+
 ]
 </script>
 
 <template>
   <div class="illustrations-page">
-    <!-- Красная шапка -->
+
     <div class="page-header">
       <h1 class="page-title">{{ $t('illustrations.title') }}</h1>
     </div>
 
-    <!-- Контент -->
+
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Секция: Скриншоты -->
+
         <section class="gallery-section">
           <h2 class="section-title">{{ $t('illustrations.screenshots') }}</h2>
           <div class="gallery-scroll">
@@ -69,7 +70,7 @@ const concepts = [
           </div>
         </section>
 
-        <!-- Секция: Иллюстрации -->
+
         <section class="gallery-section">
           <h2 class="section-title">{{ $t('illustrations.artworks') }}</h2>
           <div class="gallery-scroll">
@@ -84,7 +85,7 @@ const concepts = [
           </div>
         </section>
 
-        <!-- Секция: Концепт-арты -->
+
         <section class="gallery-section">
           <h2 class="section-title">{{ $t('illustrations.concepts') }}</h2>
           <div class="gallery-scroll">
@@ -102,10 +103,9 @@ const concepts = [
       </div>
     </div>
 
-    <!-- === МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) БЕЗ АНИМАЦИИ === -->
+
     <div v-if="selectedImage" class="lightbox-overlay" @click="closeLightbox">
       <div class="lightbox-content" @click.stop>
-        <!-- Крестик закрытия -->
         <button class="close-btn" @click="closeLightbox">&times;</button>
         <img
             :src="selectedImage.src"
@@ -119,14 +119,12 @@ const concepts = [
 </template>
 
 <style scoped>
-/* === Обёртка страницы === */
 .illustrations-page {
   width: 100%;
   background: #090909;
   min-height: 100vh;
 }
 
-/* === Красная шапка === */
 .page-header {
   background: linear-gradient(to right, #b30000, #4d0000);
   width: 100%;
@@ -143,7 +141,7 @@ const concepts = [
   text-transform: uppercase;
 }
 
-/* === Контент === */
+
 .page-content {
   background: radial-gradient(#1e1e1e, #090909);
   padding: 40px 0 60px;
@@ -156,7 +154,7 @@ const concepts = [
   padding: 0 20px;
 }
 
-/* === Секция галереи === */
+
 .gallery-section {
   margin-bottom: 60px;
 }
@@ -171,7 +169,7 @@ const concepts = [
   border-bottom: 2px solid #b30000;
 }
 
-/* === Горизонтальная прокручиваемая область === */
+
 .gallery-scroll {
   display: flex;
   gap: 20px;
@@ -187,7 +185,7 @@ const concepts = [
 .gallery-scroll::-webkit-scrollbar-thumb { background: #b30000; border-radius: 4px; }
 .gallery-scroll::-webkit-scrollbar-thumb:hover { background: #ff0000; }
 
-/* === Элемент галереи  */
+
 .gallery-item {
   flex-shrink: 0;
   width: 400px;
@@ -218,7 +216,7 @@ const concepts = [
   transform: scale(1.05);
 }
 
-/* === МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) === */
+
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -251,7 +249,7 @@ const concepts = [
   border: 2px solid rgba(179, 0, 0, 0.3);
 }
 
-/* === КРЕСТИК ЗАКРЫТИЯ === */
+
 .close-btn {
   position: absolute;
   top: -45px;
@@ -272,7 +270,7 @@ const concepts = [
   color: #b30000;
 }
 
-/* === Адаптивность === */
+
 @media (max-width: 768px) {
   .page-title { font-size: 28px; }
   .section-title { font-size: 20px; }

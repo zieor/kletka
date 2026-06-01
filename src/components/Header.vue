@@ -8,19 +8,19 @@ const { locale, t } = useI18n()
 const router = useRouter()
 const auth = useAuth()
 
-// Состояние модального окна
+
 const showModal = ref(false)
 const isRegister = ref(false)
 const form = ref({ email: '', password: '', username: '', confirm: '' })
 const error = ref('')
 
-// Переключение языка
+
 const toggleLang = () => {
   locale.value = locale.value === 'ru' ? 'en' : 'ru'
   localStorage.setItem('lang', locale.value)
 }
 
-// Открытие модалки вместо мгновенного входа
+
 const handleAccountClick = () => {
   if (auth.isLoggedIn()) {
     router.push('/account')
@@ -38,7 +38,7 @@ const closeModal = () => {
   document.body.style.overflow = ''
 }
 
-// Обработка формы
+
 const handleSubmit = () => {
   error.value = ''
   if (isRegister.value) {
@@ -64,17 +64,17 @@ const handleSubmit = () => {
   }
 }
 
-// Закрытие по Escape
+
 const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
 </script>
 
 <template>
-  <!-- === ВАШ ХЕДЕР (БЕЗ ИЗМЕНЕНИЙ В СТРУКТУРЕ) === -->
+
   <div class="url-but">
     <div class="nav-center">
       <RouterLink to="/illustrations" class="navigation">{{ $t('nav.illustrations') }}</RouterLink>
       <RouterLink to="/" class="navigation">
-        <img src="../images/header/header_icon.svg" height="34" width="34" alt="logo"/>
+        <img src="../../public/images/header/header_icon.svg" height="34" width="34" alt="logo"/>
       </RouterLink>
       <RouterLink to="/levels" class="navigation">{{ $t('nav.levels') }}</RouterLink>
     </div>
@@ -90,7 +90,7 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
     </div>
   </div>
 
-  <!-- === МОДАЛЬНОЕ ОКНО ВХОДА/РЕГИСТРАЦИИ === -->
+
   <Transition name="modal">
     <div v-if="showModal" class="modal-overlay" @click="closeModal" @keydown="handleKeydown" tabindex="-1">
       <div class="modal-content auth-modal" @click.stop>
@@ -138,7 +138,7 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
 </template>
 
 <style>
-/* === ВАШИ СТИЛИ ХЕДЕРА (ОСТАВЛЕНЫ БЕЗ ИЗМЕНЕНИЙ) === */
+
 .url-but {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -207,7 +207,7 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
   opacity: 0.8;
 }
 
-/* === СТИЛИ МОДАЛЬНОГО ОКНА (ДОБАВЛЕНЫ) === */
+
 .modal-overlay {
   position: fixed;
   top: 0; left: 0;

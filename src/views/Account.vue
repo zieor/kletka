@@ -6,7 +6,6 @@ import { useAuth } from '@/utils/auth.js'
 const router = useRouter()
 const auth = useAuth()
 
-// Состояние модального окна редактирования
 const showEditModal = ref(false)
 const editForm = ref({
   username: auth.user()?.username || '',
@@ -83,7 +82,6 @@ const handleKeydown = (e) => {
       </div>
     </div>
 
-    <!-- === МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ === -->
     <Transition name="modal">
       <div v-if="showEditModal" class="modal-overlay" @click="closeEditModal" @keydown="handleKeydown" tabindex="-1">
         <div class="modal-content edit-modal" @click.stop>
@@ -234,7 +232,7 @@ const handleKeydown = (e) => {
 }
 .logout-btn:hover { background: #b30000; color: white; }
 
-/* === МОДАЛЬНОЕ ОКНО === */
+
 .modal-overlay {
   position: fixed;
   top: 0; left: 0;

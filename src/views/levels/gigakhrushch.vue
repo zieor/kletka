@@ -7,16 +7,16 @@ const { t } = useI18n()
 
 <template>
   <div class="location-detail-page">
-    <!-- Красная шапка -->
+
     <div class="page-header">
       <h1 class="page-title">{{ $t('gigakhrushch.title') }}</h1>
     </div>
 
-    <!-- Контент -->
+
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Секция Общая информация (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
+
         <section class="info-section">
           <h2 class="section-title center">{{ $t('gigakhrushch.infoTitle') }}</h2>
 
@@ -28,9 +28,8 @@ const { t } = useI18n()
             </div>
 
             <div class="info-image">
-              <!-- Замените src на путь к вашему изображению -->
               <img
-                  src="../../images/levels/gigakhrushch.png" width="552" height="311"
+                  src="../../../public/images/news/news1.png" width="552" height="311"
                   :alt="$t('gigakhrushch.title')"
               >
             </div>
@@ -43,13 +42,13 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
-/* === Обёртка страницы === */
+
 .location-detail-page {
   width: 100%;
   background: #090909;
 }
 
-/* === Красная шапка === */
+
 .page-header {
   background: linear-gradient(to right, #b30000, #4d0000);
   width: 100%;
@@ -66,7 +65,7 @@ const { t } = useI18n()
   text-transform: uppercase;
 }
 
-/* === Контент === */
+
 .page-content {
   background: radial-gradient(#1e1e1e, #090909);
   padding: 40px 0 60px;
@@ -79,7 +78,7 @@ const { t } = useI18n()
   padding: 0 20px;
 }
 
-/* === Секция информации === */
+
 .info-section {
   margin-bottom: 40px;
 }
@@ -92,12 +91,12 @@ const { t } = useI18n()
   text-transform: uppercase;
 }
 
-/* ✅ Только для «Общая информация» */
+
 .section-title.center {
   text-align: center;
 }
 
-/* Тело секции: текст слева, картинка справа */
+
 .info-body {
   display: flex;
   gap: 30px;
@@ -120,7 +119,7 @@ const { t } = useI18n()
   margin-bottom: 0;
 }
 
-/* Изображение справа */
+
 .info-image {
   flex-shrink: 0;
   width: 450px;
@@ -138,7 +137,7 @@ const { t } = useI18n()
   filter: contrast(1.1) brightness(0.9);
 }
 
-/* === Адаптивность === */
+
 @media (max-width: 900px) {
   .info-body {
     flex-direction: column;

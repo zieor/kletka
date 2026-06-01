@@ -6,12 +6,11 @@ const { t } = useI18n()
 
 <template>
   <div class="location-detail-page">
-    <!-- Красная шапка -->
+
     <div class="page-header">
       <h1 class="page-title">{{ $t('secret.title') }}</h1>
     </div>
 
-    <!-- Контент -->
     <div class="page-content">
       <div class="content-container">
 
@@ -34,9 +33,8 @@ const { t } = useI18n()
             </div>
 
             <div class="info-image">
-              <!-- Замените путь на ваше изображение -->
               <img
-                  src="../../images/levels/secret.png"
+                  src="../../../public/images/levels/secret.png"
                   width="552"
                   height="311"
                   alt="Secret"

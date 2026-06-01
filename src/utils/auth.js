@@ -47,7 +47,6 @@ export function useAuth() {
         localStorage.removeItem('user')
     }
 
-    // === НОВЫЙ МЕТОД ===
     const updateProfile = (newData) => {
         if (!state.user) return { success: false }
 
@@ -55,11 +54,10 @@ export function useAuth() {
         const index = users.findIndex(u => u.id === state.user.id)
 
         if (index !== -1) {
-            // Обновляем пользователя в массиве
+
             users[index] = { ...users[index], ...newData }
             localStorage.setItem('users', JSON.stringify(users))
 
-            // Обновляем текущую сессию
             state.user = { ...state.user, ...newData }
             localStorage.setItem('user', JSON.stringify(state.user))
 
@@ -75,6 +73,6 @@ export function useAuth() {
         register,
         login,
         logout,
-        updateProfile  // Экспортируем новый метод
+        updateProfile
     }
 }

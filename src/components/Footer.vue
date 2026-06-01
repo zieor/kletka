@@ -41,7 +41,7 @@ const acceptCookies = (type) => {
     <!-- Контейнер только для контента, фон на весь экран -->
     <div class="footer-content">
       <div class="avtors">
-        <img src="../images/imageForFooter/avtor.png" height="80" width="80" alt="Author" />
+        <img src="../../public/images/imageForFooter/avtor.png" height="80" width="80" alt="Author" />
         <p class="avtor">Callback <br> ln404</p>
       </div>
 
@@ -57,13 +57,13 @@ const acceptCookies = (type) => {
 
       <div class="polit2">
         <a href="https://youtube.com" target="_blank" rel="noopener">
-          <img src="../images/imageForFooter/youtube.svg" height="42" width="42" alt="YouTube" />
+          <img src="../../public/images/imageForFooter/youtube.svg" height="42" width="42" alt="YouTube" />
         </a>
         <a href="https://discord.com" target="_blank" rel="noopener">
-          <img src="../images/imageForFooter/discord.svg" height="42" width="42" alt="Discord" />
+          <img src="../../public/images/imageForFooter/discord.svg" height="42" width="42" alt="Discord" />
         </a>
         <a href="https://store.steampowered.com/app/1699480/KLETKA/" target="_blank" rel="noopener">
-          <img src="../images/imageForFooter/steam.svg" height="42" width="42" alt="Steam" />
+          <img src="../../public/images/imageForFooter/steam.svg" height="42" width="42" alt="Steam" />
         </a>
       </div>
     </div>

@@ -6,16 +6,16 @@ const { t, tm } = useI18n()
 
 <template>
   <div class="location-detail-page">
-    <!-- Красная шапка -->
+
     <div class="page-header">
       <h1 class="page-title">{{ $t('anomalous.title') }}</h1>
     </div>
 
-    <!-- Контент -->
+
     <div class="page-content">
       <div class="content-container">
 
-        <!-- Общая информация (ЗАГОЛОВОК ПО ЦЕНТРУ) -->
+
         <section class="info-section">
           <h2 class="section-title center">{{ $t('anomalous.general.title') }}</h2>
           <div class="info-body">
@@ -25,7 +25,7 @@ const { t, tm } = useI18n()
           </div>
         </section>
 
-        <!-- Этаж Биурус -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.biurus.title') }}</h2>
           <div class="info-body">
@@ -34,12 +34,11 @@ const { t, tm } = useI18n()
               <p class="facts-text">{{ $t('anomalous.biurus.facts') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous1.png" width="552" height="311" alt="Biurus">
+              <img src="../../../public/images/levels/anomalous1.png" width="552" height="311" alt="Biurus">
             </div>
           </div>
         </section>
 
-        <!-- Шизофазия -->
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.schizo.title') }}</h2>
           <div class="info-body">
@@ -48,12 +47,12 @@ const { t, tm } = useI18n()
               <p class="facts-text">{{ $t('anomalous.schizo.facts') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous2.png" width="552" height="311" alt="Schizo">
+              <img src="../../../public/images/levels/anomalous2.png" width="552" height="311" alt="Schizo">
             </div>
           </div>
         </section>
 
-        <!-- Block World -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.blockWorld.title') }}</h2>
           <div class="info-body">
@@ -61,12 +60,12 @@ const { t, tm } = useI18n()
               <p>{{ $t('anomalous.blockWorld.text') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous3.png" width="552" height="311" alt="Block World">
+              <img src="../../../public/images/levels/anomalous3.png" width="552" height="311" alt="Block World">
             </div>
           </div>
         </section>
 
-        <!-- Сияние -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.shine.title') }}</h2>
           <div class="info-body">
@@ -75,12 +74,12 @@ const { t, tm } = useI18n()
               <p class="facts-text">{{ $t('anomalous.shine.facts') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous4.png" width="552" height="311" alt="Shine">
+              <img src="../../../public/images/levels/anomalous4.png" width="552" height="311" alt="Shine">
             </div>
           </div>
         </section>
 
-        <!-- Матрица -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.matrix.title') }}</h2>
           <div class="info-body">
@@ -89,12 +88,12 @@ const { t, tm } = useI18n()
               <p class="facts-text">{{ $t('anomalous.matrix.facts') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous5.png" width="552" height="311" alt="Matrix">
+              <img src="../../../public/images/levels/anomalous5.png" width="552" height="311" alt="Matrix">
             </div>
           </div>
         </section>
 
-        <!-- Сердце -->
+
         <section class="info-section">
           <h2 class="section-title">{{ $t('anomalous.heart.title') }}</h2>
           <div class="info-body">
@@ -102,7 +101,7 @@ const { t, tm } = useI18n()
               <p>{{ $t('anomalous.heart.text') }}</p>
             </div>
             <div class="info-image">
-              <img src="../../images/levels/anomalous6.png" width="552" height="311" alt="Heart">
+              <img src="../../../public/images/levels/anomalous6.png" width="552" height="311" alt="Heart">
             </div>
           </div>
         </section>
@@ -158,7 +157,7 @@ const { t, tm } = useI18n()
   text-transform: uppercase;
 }
 
-/* ✅ Только для «Общая информация» */
+
 .section-title.center {
   text-align: center;
 }
