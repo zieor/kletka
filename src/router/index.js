@@ -28,7 +28,7 @@ const router = createRouter({
         {
             path: '/news',
             name: 'News',
-            component: () => import('@/views/news.vue')
+            component: () => import('@/views/News.vue')
         },
         {
             path: '/levels/residential',
@@ -53,7 +53,7 @@ const router = createRouter({
         {
             path: '/illustrations',
             name: 'Illustrations',
-            component: () => import('@/views/illustrations.vue')
+            component: () => import('@/views/Illustrations.vue')
         },
         {
             path: '/levels/secret',

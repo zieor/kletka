@@ -8,18 +8,15 @@ const { locale, t } = useI18n()
 const router = useRouter()
 const auth = useAuth()
 
-
 const showModal = ref(false)
 const isRegister = ref(false)
 const form = ref({ email: '', password: '', username: '', confirm: '' })
 const error = ref('')
 
-
 const toggleLang = () => {
   locale.value = locale.value === 'ru' ? 'en' : 'ru'
   localStorage.setItem('lang', locale.value)
 }
-
 
 const handleAccountClick = () => {
   if (auth.isLoggedIn()) {
@@ -37,7 +34,6 @@ const closeModal = () => {
   showModal.value = false
   document.body.style.overflow = ''
 }
-
 
 const handleSubmit = () => {
   error.value = ''
@@ -64,17 +60,15 @@ const handleSubmit = () => {
   }
 }
 
-
 const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
 </script>
 
 <template>
-
   <div class="url-but">
     <div class="nav-center">
       <RouterLink to="/illustrations" class="navigation">{{ $t('nav.illustrations') }}</RouterLink>
       <RouterLink to="/" class="navigation">
-        <img src="../../public/images/header/header_icon.svg" height="34" width="34" alt="logo"/>
+        <img src="/images/header/header_icon.svg" height="34" width="34" alt="logo"/>
       </RouterLink>
       <RouterLink to="/levels" class="navigation">{{ $t('nav.levels') }}</RouterLink>
     </div>
@@ -89,7 +83,6 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
       </button>
     </div>
   </div>
-
 
   <Transition name="modal">
     <div v-if="showModal" class="modal-overlay" @click="closeModal" @keydown="handleKeydown" tabindex="-1">
@@ -138,7 +131,6 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
 </template>
 
 <style>
-
 .url-but {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -206,7 +198,6 @@ const handleKeydown = (e) => { if (e.key === 'Escape') closeModal() }
 .account-btn:hover {
   opacity: 0.8;
 }
-
 
 .modal-overlay {
   position: fixed;

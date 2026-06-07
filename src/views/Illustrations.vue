@@ -10,30 +10,30 @@ const selectedImage = ref(null)
 
 const openImage = (img) => {
   selectedImage.value = img
-  document.body.style.overflow = 'hidden' // Блокируем скролл страницы
+  document.body.style.overflow = 'hidden'
 }
 
 
 const closeLightbox = () => {
   selectedImage.value = null
-  document.body.style.overflow = '' // Возвращаем скролл
+  document.body.style.overflow = ''
 }
 
 
 const screenshots = [
-  { id: 1, src: new URL('/images/illustration/il1.png', import.meta.url).href, alt: 'Screenshot 1' },
-  { id: 2, src: new URL('/images/illustration/il2.png', import.meta.url).href, alt: 'Screenshot 2' },
-  { id: 3, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 3' },
-  { id: 4, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 4' },
-  { id: 5, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 5' },
-  { id: 6, src: new URL('public/images/levels/street.png', import.meta.url).href, alt: 'Screenshot 6' },
+  { id: 1, src: new URL('../../public/images/illustration/scr1.png', import.meta.url).href, alt: 'Screenshot 1'},
+  { id: 2, src: new URL('../../public/images/illustration/scr2.png', import.meta.url).href, alt: 'Screenshot 2'},
+  { id: 3, src: new URL('../../public/images/illustration/scr3.png', import.meta.url).href, alt: 'Screenshot 3'},
+  { id: 4, src: new URL('../../public/images/illustration/scr4.png', import.meta.url).href, alt: 'Screenshot 4'},
+
 ]
 
 const artworks = [
   { id: 1, src: new URL('/images/illustration/il1.png', import.meta.url).href, alt: 'Art 1'},
   { id: 2, src: new URL('/images/illustration/il2.png', import.meta.url).href, alt: 'Art 2' },
-  { id: 3, src: new URL('/images/levels/street.png', import.meta.url).href, alt: 'Art 3' },
-  { id: 4, src: new URL('/images/levels/street.png', import.meta.url).href, alt: 'Art 4' },
+  { id: 3, src: new URL('/images/illustration/il3.png', import.meta.url).href, alt: 'Art 2' },
+  { id: 4, src: new URL('/images/illustration/il4.png', import.meta.url).href, alt: 'Art 4' },
+
 ]
 
 const concepts = [

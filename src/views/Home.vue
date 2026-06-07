@@ -13,14 +13,11 @@ const getImageUrl = (path) => {
   return new URL(path.replace('@/', '/src/'), import.meta.url).href
 }
 
-
 const activeTab = ref('windows')
-
 const selectedNews = ref(null)
 const showPaymentModal = ref(false)
-const paymentStep = ref('form') // 'form' | 'success'
+const paymentStep = ref('form')
 const paymentMethod = ref('steam')
-
 
 const openModal = (news) => {
   selectedNews.value = news
@@ -48,16 +45,12 @@ const closePayment = () => {
   document.body.style.overflow = ''
 }
 const submitPayment = () => {
-  // Демо-обработка: просто показываем успех
   paymentStep.value = 'success'
-  setTimeout(() => {
-    closePayment()
-  }, 3000)
+  setTimeout(() => { closePayment() }, 3000)
 }
 
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
-
 
 const sysRequirements = computed(() => ({
   windows: {
@@ -109,17 +102,14 @@ const renderReqItem = (item) => {
 
 <template>
   <div class="main">
-
     <div class="hero">
       <div class="hero-buttons">
         <a href="https://store.steampowered.com/app/1699480/KLET/">
           <button class="btn hero-btn">{{ $t('hero.demo') }}</button>
         </a>
-
         <button class="btn hero-btn" @click="openPayment">{{ $t('hero.buy') }}</button>
       </div>
     </div>
-
 
     <div class="news">
       <div class="news-container">
@@ -273,29 +263,24 @@ const renderReqItem = (item) => {
             <p class="payment-price">{{ $t('payment.price') }}</p>
 
             <form @submit.prevent="submitPayment" class="payment-form">
-
               <div class="form-group">
                 <label>{{ $t('payment.email') }} *</label>
-                <input type="email" required placeholder="you@example.com" class="form-input">
+                <input type="email" required placeholder="name@gmail.com" class="form-input">
               </div>
-
 
               <div class="form-group">
                 <label>{{ $t('payment.method') }}</label>
                 <div class="payment-methods">
                   <label class="method-option">
                     <input type="radio" name="method" value="steam" v-model="paymentMethod">
-
                     <span>Steam</span>
                   </label>
                   <label class="method-option">
                     <input type="radio" name="method" value="card" v-model="paymentMethod">
-
                     <span>{{ $t('payment.card') }}</span>
                   </label>
                 </div>
               </div>
-
 
               <div v-if="paymentMethod === 'card'" class="card-fields">
                 <div class="form-group">
@@ -314,7 +299,6 @@ const renderReqItem = (item) => {
                 </div>
               </div>
 
-
               <div class="payment-actions">
                 <button type="button" class="btn-cancel" @click="closePayment">
                   {{ $t('payment.cancel') }}
@@ -325,7 +309,6 @@ const renderReqItem = (item) => {
               </div>
             </form>
           </template>
-
 
           <template v-else-if="paymentStep === 'success'">
             <div class="payment-success">
@@ -342,7 +325,6 @@ const renderReqItem = (item) => {
 </template>
 
 <style scoped>
-
 * { box-sizing: border-box; }
 .main { margin: 0 auto; width: 100%; }
 
@@ -356,13 +338,14 @@ const renderReqItem = (item) => {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 87px;
   padding-bottom: 120px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 30px;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
@@ -376,13 +359,40 @@ const renderReqItem = (item) => {
   font-size: 22px;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
-  margin: 0 50px;
   font-weight: bold;
 }
-.btn:hover { border-color: #b00100; background-color: #4b333366; }
-.btn:focus-visible { outline: 2px solid #b00100; outline-offset: 4px; }
 
+.btn:hover {
+  border-color: #b00100;
+  background-color: #4b333366;
+}
 
+.btn:focus-visible {
+  outline: 2px solid #b00100;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 500px;
+    padding-bottom: 60px;
+  }
+
+  .hero-buttons {
+
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .btn {margin-top: 150px;
+    width: 100%;
+    max-width: 320px;
+    height: 65px;
+    font-size: 18px;
+  }
+}
 .news { background: linear-gradient(to right, #b30000, #4d0000); min-height: 535px; padding: 40px 0 60px; display: flex; justify-content: center; }
 .news-container { width: 100%; max-width: 1400px; padding: 0 40px; }
 .news-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
@@ -431,7 +441,6 @@ const renderReqItem = (item) => {
 .req-item { margin-bottom: 5px; color: #b8b6b4; }
 .req-item span:first-child { color: #acb2b8; font-weight: bold; display: inline-block; width: 180px; }
 
-
 .modal-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.92); display: flex; justify-content: center;
@@ -471,201 +480,221 @@ const renderReqItem = (item) => {
 .modal-enter-active, .modal-leave-active { transition: opacity 0.25s ease; }
 .modal-enter-from, .modal-leave-to { opacity: 0; }
 
-
-.payment-modal {
-  max-width: 650px;
-  padding: 35px;
-}
-
-.payment-price {
-  color: #b30000;
-  font-size: 28px;
-  font-weight: 700;
-  margin: -10px 0 25px;
-  text-align: center;
-}
-
-.payment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-group label {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-}
-
+.payment-modal { max-width: 650px; padding: 35px; }
+.payment-price { color: #b30000; font-size: 28px; font-weight: 700; margin: -10px 0 25px; text-align: center; }
+.payment-form { display: flex; flex-direction: column; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { color: #fff; font-size: 14px; font-weight: 600; }
 .form-input {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 4px;
-  padding: 12px 15px;
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
-  box-sizing: border-box;
+  background: #1a1a1a; border: 1px solid #333; border-radius: 4px;
+  padding: 12px 15px; color: #fff; font-size: 14px; outline: none;
+  transition: border-color 0.2s; width: 100%; box-sizing: border-box;
 }
-
-.form-input:focus {
-  border-color: #b30000;
-}
-
-.form-input::placeholder {
-  color: #666;
-}
-
-
-.form-row {
-  display: flex;
-  gap: 20px;
-}
-
-.form-row .form-group {
-  flex: 1;
-  min-width: 0;
-}
-
-
-.payment-methods {
-  display: flex;
-  gap: 15px;
-}
-
+.form-input:focus { border-color: #b30000; }
+.form-input::placeholder { color: #666; }
+.form-row { display: flex; gap: 20px; }
+.form-row .form-group { flex: 1; min-width: 0; }
+.payment-methods { display: flex; gap: 15px; }
 .method-option {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  background: #1a1a1a;
-  border: 2px solid #333;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #ccc;
-  font-size: 14px;
-  justify-content: center;
+  flex: 1; display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; background: #1a1a1a; border: 2px solid #333;
+  border-radius: 4px; cursor: pointer; transition: all 0.2s;
+  color: #ccc; font-size: 14px; justify-content: center;
 }
-
-.method-option:hover {
-  border-color: #666;
+.method-option:hover { border-color: #666; }
+.method-option:has(input:checked) { border-color: #b30000; background: rgba(179, 0, 0, 0.1); color: #fff; }
+.method-option input { display: none; }
+.method-icon { font-size: 20px; }
+.card-fields { background: rgba(179, 0, 0, 0.08); border: 1px solid rgba(179, 0, 0, 0.3); border-radius: 4px; padding: 20px; margin-top: -5px; }
+.payment-actions { display: flex; gap: 15px; margin-top: 10px; }
+.btn-cancel, .btn-pay {
+  flex: 1; padding: 14px; border-radius: 4px; font-weight: 600;
+  font-size: 15px; cursor: pointer; transition: all 0.2s;
 }
-
-.method-option:has(input:checked) {
-  border-color: #b30000;
-  background: rgba(179, 0, 0, 0.1);
-  color: #fff;
-}
-
-.method-option input {
-  display: none;
-}
-
-.method-icon {
-  font-size: 20px;
-}
-
-
-.card-fields {
-  background: rgba(179, 0, 0, 0.08);
-  border: 1px solid rgba(179, 0, 0, 0.3);
-  border-radius: 4px;
-  padding: 20px;
-  margin-top: -5px;
-}
-
-
-.payment-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.btn-cancel,
-.btn-pay {
-  flex: 1;
-  padding: 14px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-cancel {
-  background: transparent;
-  border: 2px solid #666;
-  color: #ccc;
-}
-
-.btn-cancel:hover {
-  border-color: #fff;
-  color: #fff;
-}
-
-.btn-pay {
-  background: #b30000;
-  border: 2px solid #b30000;
-  color: #fff;
-}
-
-.btn-pay:hover {
-  background: #900;
-}
-
-
-.payment-success {
-  text-align: center;
-  padding: 20px 0;
-}
-
+.btn-cancel { background: transparent; border: 2px solid #666; color: #ccc; }
+.btn-cancel:hover { border-color: #fff; color: #fff; }
+.btn-pay { background: #b30000; border: 2px solid #b30000; color: #fff; }
+.btn-pay:hover { background: #900; }
+.payment-success { text-align: center; padding: 20px 0; }
 .success-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 25px;
-  background: rgba(76, 175, 80, 0.15);
-  border: 2px solid #4caf50;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #4caf50;
-  font-size: 40px;
-  font-weight: bold;
+  width: 80px; height: 80px; margin: 0 auto 25px;
+  background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #4caf50; font-size: 40px; font-weight: bold;
 }
+.payment-success .modal-title { margin-bottom: 15px; }
+.payment-success > p { color: #ccc; font-size: 15px; margin-bottom: 10px; }
+.success-note { color: #888; font-size: 13px; margin-top: 20px; }
 
-.payment-success .modal-title {
-  margin-bottom: 15px;
-}
 
-.payment-success > p {
-  color: #ccc;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
 
-.success-note {
-  color: #888;
-  font-size: 13px;
-  margin-top: 20px;
+
+@media (max-width: 1024px) {
+  .hero { height: 600px; gap: 40px; padding-bottom: 80px; }
+  .btn { width: 240px; height: 70px; font-size: 18px; margin: 0 20px; }
+
+  .news-container { padding: 0 25px; }
+  .news-title { font-size: 28px; margin-left: 10px; }
+  .news-link { margin-right: 10px; font-size: 14px; }
+  .news-cards { gap: 30px; }
+  .news-card { max-width: 300px; }
+
+  .section-title { font-size: 28px; }
+  .block-title { font-size: 20px; }
+  .block-body { gap: 25px; }
+  .block-text p { font-size: 15px; }
+
+  .req-columns { gap: 25px; }
+  .req-item span:first-child { width: 150px; }
 }
 
 
 @media (max-width: 768px) {
+  .hero {
+    height: 500px;
+    gap: 20px;
+    padding-bottom: 60px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 320px;
+    height: 65px;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .news { padding: 30px 0 40px; min-height: auto; }
+  .news-container { padding: 0 20px; }
+
+  .news-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .news-title {
+    font-size: 26px;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .news-link {
+    margin-right: 0;
+    font-size: 14px;
+    align-self: center;
+  }
+
+  .news-cards {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .news-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .card-meta { margin-right: 0; }
+  .card-image { height: 200px; }
+
+  .container { padding: 0 15px; }
+  .section-title { font-size: 24px; text-align: center; }
+  .content-block { margin-bottom: 40px; }
+  .block-title { font-size: 18px; text-align: center; }
+
+  .block-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .block-image {
+    width: 100%;
+  }
+
+  .block-text {
+    width: 100%;
+  }
+
+  .block-text p {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .tabs-header {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .req-columns {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .req-item span:first-child {
+    width: 130px;
+    font-size: 13px;
+  }
+
+  .footer-text {
+    margin-top: 40px;
+    padding-top: 25px;
+  }
+
+  .footer-text p {
+    font-size: 16px;
+  }
+
+
+  .modal-overlay { padding: 10px; }
+  .modal-content {
+    padding: 25px 20px;
+    max-height: 95vh;
+  }
+  .modal-close {
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    width: 35px;
+    height: 35px;
+  }
+  .modal-title { font-size: 22px; }
+  .modal-header { gap: 10px; }
+
+
   .payment-modal {
     max-width: 95vw;
-    padding: 25px 20px;
+    padding: 25px 15px;
   }
+
+  .payment-price { font-size: 24px; }
+
+  .payment-methods {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .method-option {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .card-fields { padding: 15px; }
 
   .form-row {
     flex-direction: column;
@@ -674,16 +703,69 @@ const renderReqItem = (item) => {
 
   .payment-actions {
     flex-direction: column;
+    gap: 10px;
   }
 
-  .payment-price {
-    font-size: 24px;
+  .btn-cancel, .btn-pay {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .success-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 36px;
   }
 }
 
 @media (max-width: 480px) {
-  .payment-methods {
-    flex-direction: column;
+  .hero {
+    height: 450px;
+    padding-bottom: 50px;
   }
+
+  .btn {
+    height: 60px;
+    font-size: 16px;
+  }
+
+  .news-title { font-size: 22px; }
+  .card-image { height: 180px; }
+  .card-tag { font-size: 14px; }
+  .card-title { font-size: 16px; }
+  .card-subtitle { font-size: 13px; }
+
+  .section-title { font-size: 20px; }
+  .block-title { font-size: 16px; }
+  .block-text p { font-size: 14px; line-height: 1.5; }
+
+  .tab-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .col-title { font-size: 12px; }
+  .req-item { font-size: 13px; }
+  .req-item span:first-child { width: 110px; }
+
+  .footer-text p { font-size: 14px; }
+
+  .modal-content { padding: 20px 15px; }
+  .modal-title { font-size: 20px; }
+  .modal-body { font-size: 14px; }
+
+  .payment-price { font-size: 22px; }
+  .form-group label { font-size: 13px; }
+  .form-input { padding: 10px 12px; font-size: 13px; }
+}
+
+
+@media (max-width: 360px) {
+  .hero { height: 400px; }
+  .btn { font-size: 14px; height: 55px; }
+  .news-title { font-size: 20px; }
+  .section-title { font-size: 18px; }
+  .req-item span:first-child { width: 100px; font-size: 12px; }
 }
 </style>
